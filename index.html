@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laminar Flow Ventures | Advanced Water Engineering & Fluid Systems</title>
+    <meta name="description" content="Laminar Flow Ventures is a premier water engineering, fluid design, and equipment sales firm delivering high-precision hydraulic solutions and sustainable water infrastructure.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" class="fluid-svg-icon">
+                        <defs>
+                            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00F2FE" />
+                                <stop offset="100%" stop-color="#4FACFE" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 20,30 Q 50,10 80,30 Q 50,50 20,30 Z" fill="url(#logo-grad)" opacity="0.9"/>
+                        <path d="M 20,50 Q 50,30 80,50 Q 50,70 20,50 Z" fill="url(#logo-grad)" opacity="0.7"/>
+                        <path d="M 20,70 Q 50,50 80,70 Q 50,90 20,70 Z" fill="url(#logo-grad)" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Laminar Flow</span>
+                    <span class="brand-sub">VENTURES</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#calculator" class="nav-link">Flow Calculator</a>
+                <a href="#portfolio" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#calculator" class="btn btn-outline"><i class="fa-solid fa-calculator"></i> Quote Calculator</a>
+                <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Canvas Fluid Simulation -->
+    <section class="hero" id="hero">
+        <canvas id="laminar-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="badge-pill">
+                <span class="badge-dot"></span> High-Precision Water Engineering & Systems
+            </div>
+            <h1 class="hero-title">
+                Engineering <span class="gradient-text">Precision</span> in Every Drop
+            </h1>
+            <p class="hero-subtitle">
+                Laminar Flow Ventures specializes in state-of-the-art hydraulic engineering works, bespoke fluid system designs, CFD modeling, and commercial equipment supply for industrial & municipal water infrastructure.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary btn-lg">
+                    <span>Explore Engineering Solutions</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#calculator" class="btn btn-glass btn-lg">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Interactive Engineering Tool</span>
+                </a>
+            </div>
+
+            <!-- Hero Live Metric Stats -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-value" data-target="99.8">99.8%</div>
+                    <div class="stat-label">Hydraulic Efficiency</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="150">150+</div>
+                    <div class="stat-label">Engineering Works Built</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="45">45M+</div>
+                    <div class="stat-label">Liters/Day Processed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="100">100%</div>
+                    <div class="stat-label">ISO & Environmental Compliance</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulation Quick Controller -->
+        <div class="sim-controls-widget glass-panel">
+            <div class="sim-widget-header">
+                <span><i class="fa-solid fa-wave-square"></i> Canvas Streamline Controls</span>
+                <button id="sim-reset-btn" title="Reset Simulation"><i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+            <div class="sim-widget-body">
+                <div class="sim-control-group">
+                    <label for="flow-mode">Flow Regime:</label>
+                    <select id="flow-mode">
+                        <option value="laminar" selected>Laminar (Smooth Parallel)</option>
+                        <option value="vortex">Vortex Core Simulation</option>
+                        <option value="turbulent">Turbulent Disruption</option>
+                    </select>
+                </div>
+                <div class="sim-control-group">
+                    <label for="particle-speed">Stream Velocity:</label>
+                    <input type="range" id="particle-speed" min="1" max="10" value="4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Engineering Philosophy Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="about-image-wrapper">
+                    <div class="glass-card image-card">
+                        <div class="blueprint-graphic">
+                            <div class="grid-overlay"></div>
+                            <svg viewBox="0 0 400 300" class="blueprint-svg">
+                                <circle cx="200" cy="150" r="100" stroke="rgba(0, 242, 254, 0.4)" stroke-width="2" fill="none" stroke-dasharray="5 5" />
+                                <circle cx="200" cy="150" r="60" stroke="rgba(0, 242, 254, 0.8)" stroke-width="3" fill="none" />
+                                <line x1="50" y1="150" x2="350" y2="150" stroke="#00F2FE" stroke-width="1.5" />
+                                <line x1="200" y1="20" x2="200" y2="280" stroke="#00F2FE" stroke-width="1.5" />
+                                <!-- Streamlines -->
+                                <path d="M 50,110 C 150,110 150,120 350,120" stroke="#4FACFE" stroke-width="2" fill="none" />
+                                <path d="M 50,190 C 150,190 150,180 350,180" stroke="#4FACFE" stroke-width="2" fill="none" />
+                            </svg>
+                            <div class="blueprint-tag">CAD HYDRAULIC DESIGN // SPEC v3.4</div>
+                        </div>
+                    </div>
+                    <div class="floating-badge">
+                        <i class="fa-solid fa-certificate"></i>
+                        <div>
+                            <strong>Certified Excellence</strong>
+                            <span>Advanced Hydraulic Fluid Dynamics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <div class="section-tag">WHO WE ARE</div>
+                    <h2 class="section-title">Mastering Liquid Dynamics for a Sustainable Tomorrow</h2>
+                    <p class="section-desc">
+                        At <strong>Laminar Flow Ventures</strong>, we harness the physics of non-turbulent fluid dynamics to engineer clean, efficient, and resilient water infrastructure. Named after the optimal state of fluid flow—where friction is minimized and control is absolute—our firm delivers end-to-end water engineering solutions.
+                    </p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                            <div class="feature-text">
+                                <h3>Precision Fluid Design</h3>
+                                <p>Using advanced CFD (Computational Fluid Dynamics) simulations to eliminate turbulence and optimize piping networks.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-gears"></i></div>
+                            <div class="feature-text">
+                                <h3>Turnkey Engineering Works</h3>
+                                <p>From industrial pump stations and municipal water purification plants to agricultural irrigation networks.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-box-open"></i></div>
+                            <div class="feature-text">
+                                <h3>High-End Equipment Supply</h3>
+                                <p>Sourcing and installing industrial-grade pumps, laminar flow nozzles, telemetry valves, and filtration media.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Pillars Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-tag">OUR CORE CAPABILITIES</div>
+                <h2 class="section-title">End-to-End Water Engineering Services</h2>
+                <p class="section-subtitle">
+                    Integrated capabilities covering high-impact construction works, scientific fluid modeling, and premium equipment procurement.
+                </p>
+            </div>
+
+            <div class="grid grid-3">
+                <!-- Service 1: Works -->
+                <div class="glass-card service-card">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-building-user"></i>
+                    </div>
+                    <h3 class="service-title">Water Engineering Works</h3>
+                    <p class="service-desc">
+                        Full-scale construction, installation, and commissioning of heavy-duty hydraulic infrastructure and treatment works.
+                    </p>
+                    <ul class="service-bullets">
+                        <li><i class="fa-solid fa-check"></i> Municipal Water Supply Networks</li>
+                        <li><i class="fa-solid fa-check"></i> High-Capacity Booster Pump Stations</li>
+                        <li><i class="fa-solid fa-check"></i> Industrial Wastewater Processing</li>
+                        <li><i class="fa-solid fa-check"></i> Dam & Reservoir Spillway Piping</li>
+                    </ul>
+                    <button class="btn btn-text modal-trigger" data-service="works">
+                        Learn Detailed Specs <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Service 2: Designs -->
+                <div class="glass-card service-card highlighted">
+                    <div class="popular-badge">CORE EXPERTISE</div>
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </div>
+                    <h3 class="service-title">Hydraulic Systems Design</h3>
+                    <p class="service-desc">
+                        Scientific fluid dynamic designs, 3D CAD modeling, and CFD analysis to minimize head loss and energy consumption.
+                    </p>
+                    <ul class="service-bullets">
+                        <li><i class="fa-solid fa-check"></i> Computational Fluid Dynamics (CFD)</li>
+                        <li><i class="fa-solid fa-check"></i> Surge & Water Hammer Mitigation</li>
+                        <li><i class="fa-solid fa-check"></i> Hydraulic Pipeline Route Optimization</li>
+                        <li><i class="fa-solid fa-check"></i> Environmental & EIA Blueprinting</li>
+                    </ul>
+                    <button class="btn btn-text modal-trigger" data-service="designs">
+                        Learn Detailed Specs <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Service 3: Sales -->
+                <div class="glass-card service-card">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="service-title">Equipment & Product Sales</h3>
+                    <p class="service-desc">
+                        Global procurement and sales of premium water management equipment certified for extreme operational longevity.
+                    </p>
+                    <ul class="service-bullets">
+                        <li><i class="fa-solid fa-check"></i> High-Efficiency Centrifugal Pumps</li>
+                        <li><i class="fa-solid fa-check"></i> Precision Laminar Flow Nozzles</li>
+                        <li><i class="fa-solid fa-check"></i> Automated Control Valves & Actuators</li>
+                        <li><i class="fa-solid fa-check"></i> IoT Ultrasonic Water Meters</li>
+                    </ul>
+                    <button class="btn btn-text modal-trigger" data-service="sales">
+                        Learn Detailed Specs <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Laminar Flow & Pipe Calculator Widget -->
+    <section class="section calculator-section" id="calculator">
+        <div class="container">
+            <div class="glass-panel calc-panel">
+                <div class="grid grid-2">
+                    <div class="calc-info">
+                        <div class="section-tag">INTERACTIVE TOOL</div>
+                        <h2 class="section-title">Laminar Flow & Hydraulic Calculator</h2>
+                        <p class="section-desc">
+                            Estimate fluid velocity, flow regime (Reynolds Number), friction head loss, and rough engineering project scope in real time.
+                        </p>
+
+                        <div class="calc-formula-card">
+                            <div class="formula-title"><i class="fa-solid fa-square-root-variable"></i> Fluid Physics Engine</div>
+                            <div class="formula-code">
+                                <code>Velocity V = (4 × Q) / (π × D²)</code><br>
+                                <code>Reynolds Re = (ρ × V × D) / μ</code>
+                            </div>
+                            <p class="formula-sub">Laminar status is maintained when Re &lt; 2,300, delivering up to 35% lower pumping energy consumption.</p>
+                        </div>
+                    </div>
+
+                    <div class="calc-form-wrapper">
+                        <div class="calc-box">
+                            <div class="input-group">
+                                <label for="calc-flow-rate">Desired Flow Rate Q (Liters / Second):</label>
+                                <div class="slider-with-number">
+                                    <input type="range" id="calc-flow-range" min="1" max="500" value="50">
+                                    <input type="number" id="calc-flow-num" min="1" max="500" value="50">
+                                    <span class="unit">L/s</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="calc-pipe-dia">Pipe Inner Diameter D (Millimeters):</label>
+                                <div class="slider-with-number">
+                                    <input type="range" id="calc-dia-range" min="20" max="1000" value="200">
+                                    <input type="number" id="calc-dia-num" min="20" max="1000" value="200">
+                                    <span class="unit">mm</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="calc-pipe-length">Piping Distance L (Meters):</label>
+                                <div class="slider-with-number">
+                                    <input type="range" id="calc-len-range" min="10" max="5000" value="500">
+                                    <input type="number" id="calc-len-num" min="10" max="5000" value="500">
+                                    <span class="unit">m</span>
+                                </div>
+                            </div>
+
+                            <div class="calc-results-card">
+                                <div class="res-row">
+                                    <span>Fluid Velocity (V):</span>
+                                    <strong id="res-velocity">1.59 m/s</strong>
+                                </div>
+                                <div class="res-row">
+                                    <span>Reynolds Number (Re):</span>
+                                    <strong id="res-reynolds">318,000</strong>
+                                </div>
+                                <div class="res-row">
+                                    <span>Flow State:</span>
+                                    <span class="status-pill turbulent" id="res-regime">Turbulent Flow</span>
+                                </div>
+                                <div class="res-row">
+                                    <span>Est. Friction Head Loss:</span>
+                                    <strong id="res-headloss">4.12 m</strong>
+                                </div>
+                            </div>
+
+                            <button id="calc-request-btn" class="btn btn-primary btn-block">
+                                <i class="fa-solid fa-file-signature"></i> Request Custom Engineering Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio & Projects Gallery -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-tag">PROVEN RECORD</div>
+                <h2 class="section-title">Engineering Projects & Case Studies</h2>
+                <p class="section-subtitle">A showcase of recent hydraulic installations, blueprints, and equipment deployments.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="works">Engineering Works</button>
+                <button class="filter-btn" data-filter="designs">Designs & Blueprints</button>
+                <button class="filter-btn" data-filter="sales">Equipment Deployments</button>
+            </div>
+
+            <!-- Grid Items -->
+            <div class="grid grid-3 portfolio-grid">
+                <!-- Item 1 -->
+                <div class="glass-card portfolio-card" data-category="works">
+                    <div class="portfolio-thumb">
+                        <div class="thumb-graphic hydro-plant"></div>
+                        <span class="category-tag">Works</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Metro Water Treatment Works</h3>
+                        <p>High-volume filtration and automated dosing facility processing 25M liters daily.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-location-dot"></i> Regional Hub</span>
+                            <span><i class="fa-solid fa-gauge-high"></i> 25 MLD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="glass-card portfolio-card" data-category="designs">
+                    <div class="portfolio-thumb">
+                        <div class="thumb-graphic cfd-mesh"></div>
+                        <span class="category-tag">Designs</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>CFD Spillway Optimization</h3>
+                        <p>Computer modeling to reduce cavitation and turbulent erosion on high-head dam spillways.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-microchip"></i> ANSYS Fluent</span>
+                            <span><i class="fa-solid fa-bolt"></i> -40% Energy Loss</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="glass-card portfolio-card" data-category="sales">
+                    <div class="portfolio-thumb">
+                        <div class="thumb-graphic pump-rig"></div>
+                        <span class="category-tag">Sales</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Industrial Pump Matrix Supply</h3>
+                        <p>Delivery and installation of 12 duplex stainless steel high-pressure booster pumps.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-truck"></i> Turnkey Supply</span>
+                            <span><i class="fa-solid fa-shield"></i> 5-Yr Warranty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="glass-card portfolio-card" data-category="works">
+                    <div class="portfolio-thumb">
+                        <div class="thumb-graphic pipe-net"></div>
+                        <span class="category-tag">Works</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Cross-County Bulk Water Pipeline</h3>
+                        <p>Installation of 42km HDPE pressure mains with smart transient surge tanks.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-route"></i> 42 km Route</span>
+                            <span><i class="fa-solid fa-faucet-drip"></i> Zero Surge</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="glass-card portfolio-card" data-category="designs">
+                    <div class="portfolio-thumb">
+                        <div class="thumb-graphic cad-plan"></div>
+                        <span class="category-tag">Designs</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Laminar Fountain Engineering</h3>
+                        <p>Precision nozzle array design generating glass-like crystal clear water arcs.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-wand-magic-sparkles"></i> Architectural</span>
+                            <span><i class="fa-solid fa-droplet"></i> Laminar Nozzles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="glass-card portfolio-card" data-category="sales">
+                    <div class="portfolio-thumb">
+                        <div class="thumb-graphic meter-iot"></div>
+                        <span class="category-tag">Sales</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Smart Telemetry Metering Fleet</h3>
+                        <p>Deployment of 500+ cellular connected ultrasonic flowmeters for municipal monitoring.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-wifi"></i> IoT Connected</span>
+                            <span><i class="fa-solid fa-chart-line"></i> Live Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Consultation Form -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="contact-info">
+                    <div class="section-tag">GET IN TOUCH</div>
+                    <h2 class="section-title">Let's Discuss Your Water Infrastructure Project</h2>
+                    <p class="section-desc">
+                        Whether you require full-scale engineering works, bespoke CFD design blueprints, or equipment procurement, our engineering team is ready to assist.
+                    </p>
+
+                    <div class="contact-methods">
+                        <div class="method-card">
+                            <div class="method-icon"><i class="fa-solid fa-building"></i></div>
+                            <div>
+                                <strong>Laminar Flow Ventures</strong>
+                                <span>Water Engineering Works, Designs & Sales</span>
+                            </div>
+                        </div>
+                        <div class="method-card">
+                            <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <strong>Direct Email</strong>
+                                <span>info@laminarflowventures.com</span>
+                            </div>
+                        </div>
+                        <div class="method-card">
+                            <div class="method-icon"><i class="fa-brands fa-github"></i></div>
+                            <div>
+                                <strong>Git Repository & Web Hosting</strong>
+                                <a href="https://github.com/Christopher-Ssekyanzi" target="_blank" class="link-glow">github.com/Christopher-Ssekyanzi</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card contact-form-card">
+                    <form id="contact-form">
+                        <h3>Schedule an Engineering Consultation</h3>
+                        
+                        <div class="form-group">
+                            <label for="form-name">Full Name *</label>
+                            <input type="text" id="form-name" required placeholder="e.g. Eng. Christopher">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-email">Email Address *</label>
+                                <input type="email" id="form-email" required placeholder="name@company.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-phone">Phone Number</label>
+                                <input type="tel" id="form-phone" placeholder="+256 ...">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-service">Primary Area of Interest</label>
+                            <select id="form-service">
+                                <option value="works">Water Engineering Works (Construction & Contracting)</option>
+                                <option value="designs">Hydraulic Systems Design & CFD Blueprinting</option>
+                                <option value="sales">Equipment & Product Sales (Pumps, Valves, Meters)</option>
+                                <option value="full">Full Turnkey Partnership</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-message">Project Description & Requirements *</label>
+                            <textarea id="form-message" rows="4" required placeholder="Describe your required flow rate, location, pipe dimensions, or equipment needs..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span>Submit Engineering Inquiry</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <div class="brand-text">
+                            <span class="brand-name">Laminar Flow</span>
+                            <span class="brand-sub">VENTURES</span>
+                        </div>
+                    </div>
+                    <p>High-Precision Water Engineering Works, Fluid System Designs & Equipment Procurement.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#calculator">Flow Calculator</a></li>
+                        <li><a href="#portfolio">Projects</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Engineering Pillars</h4>
+                    <ul>
+                        <li><a href="#services">Water Engineering Works</a></li>
+                        <li><a href="#services">Hydraulic Systems Design</a></li>
+                        <li><a href="#services">CFD Fluid Simulation</a></li>
+                        <li><a href="#services">Equipment & Product Sales</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Repository & Hosting</h4>
+                    <p>Hosted on GitHub Pages</p>
+                    <a href="https://github.com/Christopher-Ssekyanzi" target="_blank" class="btn btn-glass btn-sm">
+                        <i class="fa-brands fa-github"></i> @Christopher-Ssekyanzi
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> Laminar Flow Ventures. All Rights Reserved. Engineered with precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Spec Modal -->
+    <div class="modal" id="spec-modal">
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modal-body">
+                <!-- Content dynamically injected via app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Inquiry sent successfully!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="laminar_simulation.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
