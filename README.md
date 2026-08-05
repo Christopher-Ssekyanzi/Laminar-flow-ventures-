@@ -33,48 +33,32 @@ Welcome to the official web repository for **Laminar Flow Ventures**, a premier 
 
 ---
 
-## 🚀 How to Host on GitHub Pages (Step-by-Step Guide)
+## 🚀 Pushing to GitHub & Enabling GitHub Pages
 
-Your local repository is already initialized and committed! Follow these simple steps to link it to your GitHub account (`https://github.com/Christopher-Ssekyanzi`) and host it online for free using GitHub Pages:
+Your local repository remote URL has been set to:
+`https://github.com/Christopher-Ssekyanzi/Laminar-Flow-Ventures.git`
 
-### Step 1: Create a New Repository on GitHub
-1. Go to your GitHub dashboard: [github.com/new](https://github.com/new).
-2. Set the repository name to: **`laminar-flow-ventures`** (or `christopher-ssekyanzi.github.io` for a default root site).
-3. Select **Public**.
-4. Leave "Add a README file" **unchecked** (since we already have local files).
-5. Click **Create repository**.
+### Command to Push Code:
+Run this single command in your terminal (`c:\Users\austi\Downloads\Laminar Flow`):
 
-### Step 2: Push Local Repository to GitHub
-Open your terminal in this folder (`c:\Users\austi\Downloads\Laminar Flow`) and run:
-
-```bash
-git branch -M main
-git remote add origin https://github.com/Christopher-Ssekyanzi/laminar-flow-ventures.git
+```powershell
 git push -u origin main
 ```
 
-### Step 3: Enable Free Temporary Hosting on GitHub Pages
-1. Navigate to your repository on GitHub: `https://github.com/Christopher-Ssekyanzi/laminar-flow-ventures`.
-2. Click on **Settings** (top navigation tab).
+*(If prompted by GitHub for credentials, sign in via browser popup or enter your Personal Access Token).*
+
+---
+
+### Step-by-Step: Enabling GitHub Pages Hosting
+1. Go to your repository on GitHub: **[github.com/Christopher-Ssekyanzi/Laminar-Flow-Ventures](https://github.com/Christopher-Ssekyanzi/Laminar-Flow-Ventures)**.
+2. Click **Settings** (top navigation tab).
 3. On the left sidebar, click **Pages** (under Code and automation).
 4. Under **Build and deployment** -> **Source**, select **Deploy from a branch**.
 5. Set **Branch** to `main` and folder to `/ (root)`.
 6. Click **Save**.
 
-Within 1–2 minutes, your website will be live at:
-🌐 **`https://christopher-ssekyanzi.github.io/laminar-flow-ventures/`**
-
----
-
-## 🛠️ Local Development & Testing
-
-To test locally in any browser:
-- Double-click [`index.html`](file:///c:/Users/austi/Downloads/Laminar%20Flow/index.html) to open directly in your web browser.
-- Alternatively, launch a local HTTP server using Python or Node.js:
-  ```bash
-  python -m http.server 8080
-  ```
-  Then open `http://localhost:8080` in your web browser.
+Your live website will be accessible at:
+🌐 **`https://christopher-ssekyanzi.github.io/Laminar-Flow-Ventures/`**
 
 ---
 
