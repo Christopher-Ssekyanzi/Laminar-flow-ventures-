@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCalculator();
     initPortfolio();
     initModal();
+    initProducts();
     initForm();
     initSimWidget();
     updateYear();
@@ -57,6 +58,7 @@ function initCalculator() {
     const resHeadloss = document.getElementById('res-headloss');
 
     function sync(range, num) {
+        if (!range || !num) return;
         range.addEventListener('input', () => {
             num.value = range.value;
             calculate();
@@ -72,46 +74,40 @@ function initCalculator() {
     sync(lRange, lNum);
 
     function calculate() {
+        if (!qNum || !dNum || !lNum) return;
         const Q = parseFloat(qNum.value) / 1000; // convert L/s to m^3/s
         const D = parseFloat(dNum.value) / 1000; // convert mm to meters
         const L = parseFloat(lNum.value);       // meters
 
         if (!Q || !D || !L) return;
 
-        // Area A = pi * (D/2)^2
         const A = Math.PI * Math.pow(D / 2, 2);
-        
-        // Velocity V = Q / A
         const V = Q / A;
-
-        // Reynolds Number Re = (density * V * D) / viscosity
-        // Water @ 20°C: density ≈ 998 kg/m^3, dynamic viscosity μ ≈ 0.001 Pa·s
         const Re = (998 * V * D) / 0.001002;
 
-        // Friction factor (Darcy-Weisbach friction estimate)
         let f = (Re < 2300) ? (64 / Re) : (0.316 / Math.pow(Re, 0.25));
         if (isNaN(f) || !isFinite(f)) f = 0.02;
 
-        // Head loss h_f = f * (L/D) * (V^2 / 2g)
         const g = 9.81;
         const hf = f * (L / D) * (Math.pow(V, 2) / (2 * g));
 
-        // Update UI
-        resVelocity.textContent = `${V.toFixed(2)} m/s`;
-        resReynolds.textContent = Math.round(Re).toLocaleString();
-        resHeadloss.textContent = `${hf.toFixed(2)} m`;
+        if (resVelocity) resVelocity.textContent = `${V.toFixed(2)} m/s`;
+        if (resReynolds) resReynolds.textContent = Math.round(Re).toLocaleString();
+        if (resHeadloss) resHeadloss.textContent = `${hf.toFixed(2)} m`;
 
-        if (Re < 2300) {
-            resRegime.textContent = 'Laminar Flow (Optimal)';
-            resRegime.className = 'status-pill laminar';
-        } else if (Re < 4000) {
-            resRegime.textContent = 'Transitional Flow';
-            resRegime.className = 'status-pill turbulent';
-            resRegime.style.borderColor = '#FFC107';
-            resRegime.style.color = '#FFC107';
-        } else {
-            resRegime.textContent = 'Turbulent Flow';
-            resRegime.className = 'status-pill turbulent';
+        if (resRegime) {
+            if (Re < 2300) {
+                resRegime.textContent = 'Laminar Flow (Optimal)';
+                resRegime.className = 'status-pill laminar';
+            } else if (Re < 4000) {
+                resRegime.textContent = 'Transitional Flow';
+                resRegime.className = 'status-pill turbulent';
+                resRegime.style.borderColor = '#FFC107';
+                resRegime.style.color = '#FFC107';
+            } else {
+                resRegime.textContent = 'Turbulent Flow';
+                resRegime.className = 'status-pill turbulent';
+            }
         }
     }
 
@@ -123,12 +119,29 @@ function initCalculator() {
             const formService = document.getElementById('form-service');
             const formMsg = document.getElementById('form-message');
             if (formService) formService.value = 'designs';
-            if (formMsg) {
+            if (formMsg && qNum && dNum && lNum && resVelocity && resRegime) {
                 formMsg.value = `Hydraulic Calculation Spec:\n- Flow Rate (Q): ${qNum.value} L/s\n- Pipe Diameter (D): ${dNum.value} mm\n- Distance (L): ${lNum.value} m\n- Velocity (V): ${resVelocity.textContent}\n- Flow State: ${resRegime.textContent}`;
             }
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
     }
+}
+
+/* Equipment Product Inquiry Binding */
+function initProducts() {
+    const productBtns = document.querySelectorAll('.product-inquire-btn');
+    productBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const productName = btn.dataset.product;
+            const formService = document.getElementById('form-service');
+            const formMsg = document.getElementById('form-message');
+            if (formService) formService.value = 'sales';
+            if (formMsg && productName) {
+                formMsg.value = `Product Sales Quote Request:\n- Product: ${productName}\n- Quantity: 1 Set / System\n- Delivery Location: Kampala / Uganda`;
+            }
+            showToast(`Selected "${productName}". Scrolling to quote form...`);
+        });
+    });
 }
 
 /* Portfolio Filtering */
@@ -170,7 +183,7 @@ function initModal() {
                     <ul class="modal-spec-list">
                         <li><strong>Civil & Structural:</strong> Reinforced concrete reservoirs, pump foundations, intake towers, spillways.</li>
                         <li><strong>Hydraulic Mechanical:</strong> High-pressure piping assemblies (HDPE, Ductile Iron, Stainless Steel 316L).</li>
-                        <li><strong>Electrical & Telemetry:</strong> Motor control centers (MCC), VFD drives, backup generators, SCADA integration.</li>
+                        <li><strong>Electrical & Telemetry:</strong> Motor control centers (MCC), VFD drives, solar arrays, SCADA integration.</li>
                         <li><strong>Quality Assurance:</strong> ISO 9001 quality audits, hydrostatic pressure testing up to 25 bar.</li>
                     </ul>
                 </div>
@@ -193,9 +206,9 @@ function initModal() {
             title: "Equipment & Product Procurement Catalog",
             content: `
                 <div class="modal-spec-box">
-                    <p class="modal-intro">We supply industrial-tier pumps, laminar flow nozzles, and smart flow meters from globally certified OEMs.</p>
+                    <p class="modal-intro">We supply industrial-tier pumps, solar borehole sets, laminar flow nozzles, and smart flow meters from globally certified OEMs.</p>
                     <ul class="modal-spec-list">
-                        <li><strong>Pumps:</strong> Centrifugal, vertical turbine, submersible, positive displacement (0.5 to 500 L/s).</li>
+                        <li><strong>Pumps:</strong> Centrifugal, vertical turbine, solar submersible sets (0.5 to 500 L/s).</li>
                         <li><strong>Valves:</strong> Pressure reducing (PRV), air release, butterfly, non-return check valves.</li>
                         <li><strong>Smart IoT:</strong> Ultrasonic transit-time meters, wireless telemetry loggers with solar backing.</li>
                     </ul>

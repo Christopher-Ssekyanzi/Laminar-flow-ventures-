@@ -1,6 +1,6 @@
 /* ==========================================================================
    Laminar Flow Ventures - Master Design System & Stylesheet
-   Theme: Oceanic Obsidian, Fluid Cyan, & Sapphire Glassmorphic Engineering
+   Theme: Oceanic Obsidian, Vibrant Benchmark Accents & Glassmorphic Engineering
    ========================================================================== */
 
 :root {
@@ -13,6 +13,9 @@
     --primary-sapphire: #4FACFE;
     --accent-teal: #00E5FF;
     --accent-blue: #0072FF;
+    --accent-amber: #F59E0B;
+    --accent-emerald: #10B981;
+    --accent-rose: #EC4899;
     --accent-glow: rgba(0, 242, 254, 0.35);
     
     --text-main: #F8FAFC;
@@ -517,6 +520,64 @@ h1, h2, h3, h4, h5, h6 {
     outline: none;
 }
 
+/* TRUST BAR SECTION (Vibrant Colors Inspired by Benchmark) */
+.trust-bar-section {
+    position: relative;
+    z-index: 20;
+    margin-top: -50px;
+    margin-bottom: 40px;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 28px;
+    border-color: var(--border-glow);
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.trust-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.trust-icon.cyan { background: rgba(0, 242, 254, 0.15); color: var(--primary-cyan); border: 1px solid rgba(0, 242, 254, 0.35); }
+.trust-icon.emerald { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.35); }
+.trust-icon.amber { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.35); }
+.trust-icon.rose { background: rgba(236, 72, 153, 0.15); color: var(--accent-rose); border: 1px solid rgba(236, 72, 153, 0.35); }
+
+.trust-item h4 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.trust-item p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Feature Icon Color Variants */
+.feature-icon.cyan { background: rgba(0, 242, 254, 0.15); color: var(--primary-cyan); border: 1px solid rgba(0, 242, 254, 0.35); }
+.feature-icon.amber { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.35); }
+.feature-icon.emerald { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.35); }
+
+/* Service Icon Color Variants */
+.service-icon-wrapper.amber { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+.service-icon-wrapper.cyan { background: rgba(0, 242, 254, 0.12); color: var(--primary-cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
+.service-icon-wrapper.emerald { background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+
 /* About Section & Blueprint Visual */
 .about-image-wrapper {
     position: relative;
@@ -613,12 +674,9 @@ h1, h2, h3, h4, h5, h6 {
     width: 44px;
     height: 44px;
     border-radius: var(--radius-sm);
-    background: rgba(0, 242, 254, 0.1);
-    border: 1px solid rgba(0, 242, 254, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-cyan);
     font-size: 1.2rem;
     flex-shrink: 0;
 }
@@ -663,13 +721,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 60px;
     height: 60px;
     border-radius: var(--radius-md);
-    background: rgba(0, 242, 254, 0.08);
-    border: 1px solid rgba(0, 242, 254, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.6rem;
-    color: var(--primary-cyan);
     margin-bottom: 24px;
 }
 
@@ -702,6 +757,84 @@ h1, h2, h3, h4, h5, h6 {
 .service-bullets i {
     color: var(--primary-cyan);
     font-size: 0.75rem;
+}
+
+/* PRODUCTS / EQUIPMENT SALES SHOWCASE */
+.product-card {
+    padding: 24px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 242, 254, 0.15);
+    color: var(--primary-cyan);
+    border: 1px solid var(--primary-cyan);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.product-badge.emerald {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-emerald);
+    border-color: var(--accent-emerald);
+}
+
+.product-badge.amber {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--accent-amber);
+    border-color: var(--accent-amber);
+}
+
+.product-badge.rose {
+    background: rgba(236, 72, 153, 0.15);
+    color: var(--accent-rose);
+    border-color: var(--accent-rose);
+}
+
+.product-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.product-icon.cyan { background: rgba(0, 242, 254, 0.1); color: var(--primary-cyan); }
+.product-icon.emerald { background: rgba(16, 185, 129, 0.1); color: var(--accent-emerald); }
+.product-icon.amber { background: rgba(245, 158, 11, 0.1); color: var(--accent-amber); }
+.product-icon.rose { background: rgba(236, 72, 153, 0.1); color: var(--accent-rose); }
+
+.product-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.product-specs {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--primary-cyan);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
 }
 
 /* Calculator Section */
@@ -975,13 +1108,15 @@ h1, h2, h3, h4, h5, h6 {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(0, 242, 254, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-cyan);
     font-size: 1.2rem;
 }
+
+.method-icon.cyan { background: rgba(0, 242, 254, 0.15); color: var(--primary-cyan); }
+.method-icon.emerald { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
+.method-icon.amber { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
 
 .method-card strong {
     display: block;
@@ -1185,9 +1320,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Responsive Styles */
+@media (max-width: 1024px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 992px) {
     .hero-title { font-size: 3rem; }
-    .grid-4 { grid-template-columns: repeat(2, 1fr); }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
     .grid-2 { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr 1fr; }
@@ -1213,6 +1352,7 @@ h1, h2, h3, h4, h5, h6 {
     .nav-actions .btn { display: none; }
     .hero-title { font-size: 2.3rem; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .trust-grid { grid-template-columns: 1fr; }
     .sim-controls-widget { display: none; }
     .form-row { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
