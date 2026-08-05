@@ -4,15 +4,15 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initNavbar();
-    initCalculator();
-    initPortfolio();
-    initModal();
-    initProducts();
-    initPortal();
-    initForm();
-    initSimWidget();
-    updateYear();
+    try { initNavbar(); } catch(e) { console.error(e); }
+    try { initPortal(); } catch(e) { console.error(e); }
+    try { initCalculator(); } catch(e) { console.error(e); }
+    try { initPortfolio(); } catch(e) { console.error(e); }
+    try { initModal(); } catch(e) { console.error(e); }
+    try { initProducts(); } catch(e) { console.error(e); }
+    try { initForm(); } catch(e) { console.error(e); }
+    try { initSimWidget(); } catch(e) { console.error(e); }
+    try { updateYear(); } catch(e) { console.error(e); }
 });
 
 /* Navbar Scroll & Mobile Menu Toggle */
@@ -70,46 +70,59 @@ function initPortal() {
 
     let currentUser = null;
 
-    function openPortal() {
+    // EXPOSE GLOBAL METHOD FOR INSTANT HTML CLICK INVOCATION
+    window.openClientPortal = function() {
         if (currentUser) {
             openDashboard();
         } else {
             if (portalModal) portalModal.classList.add('active');
         }
-    }
+    };
 
-    function closePortal() {
+    window.closeClientPortal = function() {
         if (portalModal) portalModal.classList.remove('active');
-    }
+    };
 
-    function openDashboard() {
-        closePortal();
+    window.openDashboard = function() {
+        window.closeClientPortal();
         if (dashboardModal) dashboardModal.classList.add('active');
-    }
+    };
 
-    function closeDashboard() {
+    window.closeDashboard = function() {
         if (dashboardModal) dashboardModal.classList.remove('active');
+    };
+
+    if (portalBtn) portalBtn.addEventListener('click', window.openClientPortal);
+    if (heroPortalBtn) heroPortalBtn.addEventListener('click', window.openClientPortal);
+    if (portalClose) portalClose.addEventListener('click', window.closeClientPortal);
+    if (dashClose) dashClose.addEventListener('click', window.closeDashboard);
+
+    if (portalModal) {
+        portalModal.addEventListener('click', (e) => {
+            if (e.target === portalModal) window.closeClientPortal();
+        });
     }
 
-    if (portalBtn) portalBtn.addEventListener('click', openPortal);
-    if (heroPortalBtn) heroPortalBtn.addEventListener('click', openPortal);
-    if (portalClose) portalClose.addEventListener('click', closePortal);
-    if (dashClose) dashClose.addEventListener('click', closeDashboard);
+    if (dashboardModal) {
+        dashboardModal.addEventListener('click', (e) => {
+            if (e.target === dashboardModal) window.closeDashboard();
+        });
+    }
 
     // Tab Switching
     if (tabLoginBtn && tabRegisterBtn) {
         tabLoginBtn.addEventListener('click', () => {
             tabLoginBtn.classList.add('active');
             tabRegisterBtn.classList.remove('active');
-            loginForm.classList.add('active');
-            registerForm.classList.remove('active');
+            if (loginForm) loginForm.classList.add('active');
+            if (registerForm) registerForm.classList.remove('active');
         });
 
         tabRegisterBtn.addEventListener('click', () => {
             tabRegisterBtn.classList.add('active');
             tabLoginBtn.classList.remove('active');
-            registerForm.classList.add('active');
-            loginForm.classList.remove('active');
+            if (registerForm) registerForm.classList.add('active');
+            if (loginForm) loginForm.classList.remove('active');
         });
     }
 
@@ -117,7 +130,8 @@ function initPortal() {
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('login-email').value;
+            const emailInput = document.getElementById('login-email');
+            const email = emailInput ? emailInput.value : 'client@company.com';
             authenticateUser({
                 name: email.split('@')[0].toUpperCase(),
                 role: 'PROJECT CLIENT // ID: LFV-88402',
@@ -130,9 +144,9 @@ function initPortal() {
     if (registerForm) {
         registerForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('reg-name').value;
-            const company = document.getElementById('reg-company').value;
-            const type = document.getElementById('reg-type').value;
+            const name = document.getElementById('reg-name') ? document.getElementById('reg-name').value : 'New Client';
+            const company = document.getElementById('reg-company') ? document.getElementById('reg-company').value : 'Client Estate';
+            const type = document.getElementById('reg-type') ? document.getElementById('reg-type').value : 'client';
 
             showToast(`Account Created for ${company}! Data Activated.`);
             authenticateUser({
@@ -171,14 +185,14 @@ function initPortal() {
         if (navUserLabel) navUserLabel.textContent = 'My Dashboard';
 
         showToast(`Welcome back, ${currentUser.name}!`);
-        openDashboard();
+        window.openDashboard();
     }
 
     if (dashLogoutBtn) {
         dashLogoutBtn.addEventListener('click', () => {
             currentUser = null;
             if (navUserLabel) navUserLabel.textContent = 'Client Portal';
-            closeDashboard();
+            window.closeDashboard();
             showToast('Signed out successfully.');
         });
     }
@@ -380,9 +394,11 @@ function initModal() {
         modal.classList.remove('active');
     };
 
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
 }
 
 /* Simulation Controls Binding */
