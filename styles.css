@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Laminar Flow Ventures - Master Design System & Stylesheet
-   Theme: High-End Pristine White & Deep Hydro Blue Engineering
+   Laminar Flow Ventures Limited - Master Design System & Stylesheet
+   Theme: Pristine White, Hydro Blue Engineering & Official Corporate Branding
    ========================================================================== */
 
 :root {
@@ -89,6 +89,88 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-sapphire) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* LOGO IMAGE STYLES */
+.brand-logo-wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.header-logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    transition: transform var(--transition-fast);
+}
+
+.header-logo-img:hover {
+    transform: scale(1.03);
+}
+
+.hero-brand-badge {
+    margin-bottom: 20px;
+}
+
+.hero-logo-badge-img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0, 119, 255, 0.15));
+    background: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.footer-logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    background: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+}
+
+/* REAL PROJECT IMAGE STYLES */
+.about-real-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    display: block;
+}
+
+.about-img-caption {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #FFFFFF;
+    font-size: 0.82rem;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.about-img-caption i {
+    color: var(--primary-cyan);
+}
+
+.portfolio-real-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+}
+
+.portfolio-card:hover .portfolio-real-img {
+    transform: scale(1.06);
 }
 
 /* UI Cards & Panels */
@@ -241,13 +323,13 @@ h1, h2, h3, h4, h5, h6 {
     height: var(--nav-height);
     z-index: 1000;
     transition: all var(--transition-smooth);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
     height: 70px;
 }
@@ -260,36 +342,6 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.brand-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-icon {
-    width: 38px;
-    height: 38px;
-}
-
-.brand-name {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 1.3rem;
-    display: block;
-    color: var(--text-main);
-    letter-spacing: -0.01em;
-}
-
-.brand-sub {
-    font-family: var(--font-heading);
-    font-size: 0.65rem;
-    letter-spacing: 3px;
-    color: var(--primary-cyan);
-    display: block;
-    margin-top: -4px;
-    font-weight: 600;
 }
 
 .nav-menu {
@@ -414,7 +466,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 3.8rem;
     letter-spacing: -0.03em;
     margin-bottom: 24px;
     font-weight: 800;
@@ -422,7 +474,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: var(--text-muted);
     margin-bottom: 40px;
     line-height: 1.7;
@@ -585,51 +637,9 @@ h1, h2, h3, h4, h5, h6 {
 .service-icon-wrapper.cyan { background: #E0F2FE; color: var(--primary-cyan); }
 .service-icon-wrapper.emerald { background: #DCFCE7; color: var(--accent-emerald); }
 
-/* About Section & Blueprint Visual */
+/* About Section */
 .about-image-wrapper {
     position: relative;
-}
-
-.blueprint-graphic {
-    position: relative;
-    width: 100%;
-    height: 340px;
-    background: #0F172A;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.grid-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(0, 119, 255, 0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 119, 255, 0.15) 1px, transparent 1px);
-    background-size: 20px 20px;
-}
-
-.blueprint-svg {
-    width: 90%;
-    height: 90%;
-    z-index: 2;
-}
-
-.blueprint-tag {
-    position: absolute;
-    bottom: 12px;
-    left: 16px;
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: #38BDF8;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 4px 10px;
-    border-radius: 4px;
 }
 
 .floating-badge {
