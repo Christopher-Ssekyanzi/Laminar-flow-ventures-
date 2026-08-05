@@ -61,10 +61,10 @@ class LaminarSimulation {
             this.particles.push({
                 x: Math.random() * this.width,
                 y: Math.random() * this.height,
-                size: Math.random() * 2 + 1,
+                size: Math.random() * 2.5 + 1,
                 speed: Math.random() * 0.8 + 0.6,
-                alpha: Math.random() * 0.7 + 0.3,
-                hue: Math.random() * 40 + 175 // Cyan to Sapphire Blue range
+                alpha: Math.random() * 0.7 + 0.4,
+                hue: Math.random() * 30 + 195 // Ocean Cyan to Sapphire Blue range
             });
         }
     }
@@ -127,12 +127,12 @@ class LaminarSimulation {
         const resolution = 25;
         this.streamlines.forEach((line, idx) => {
             this.ctx.beginPath();
-            this.ctx.lineWidth = idx % 3 === 0 ? 1.5 : 0.8;
+            this.ctx.lineWidth = idx % 3 === 0 ? 1.8 : 1.0;
             
             const gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-            gradient.addColorStop(0, 'rgba(0, 242, 254, 0.05)');
-            gradient.addColorStop(0.5, 'rgba(0, 242, 254, 0.25)');
-            gradient.addColorStop(1, 'rgba(79, 172, 254, 0.05)');
+            gradient.addColorStop(0, 'rgba(0, 119, 255, 0.05)');
+            gradient.addColorStop(0.5, 'rgba(0, 119, 255, 0.3)');
+            gradient.addColorStop(1, 'rgba(0, 184, 217, 0.05)');
             this.ctx.strokeStyle = gradient;
 
             let currY = line.baseY;
@@ -154,7 +154,6 @@ class LaminarSimulation {
             p.x += vel.vx * p.speed;
             p.y += vel.vy * p.speed;
 
-            // Reset when leaving screen
             if (p.x > this.width) {
                 p.x = -10;
                 p.y = Math.random() * this.height;
@@ -162,14 +161,14 @@ class LaminarSimulation {
             if (p.y < 0) p.y = this.height;
             if (p.y > this.height) p.y = 0;
 
-            // Render Particle with Glow
-            this.ctx.fillStyle = `hsla(${p.hue}, 100%, 65%, ${p.alpha})`;
+            // Render Particle with Glow on Light Background
+            this.ctx.fillStyle = `hsla(${p.hue}, 90%, 45%, ${p.alpha})`;
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             this.ctx.fill();
 
             // Particle Trail
-            this.ctx.strokeStyle = `hsla(${p.hue}, 100%, 65%, ${p.alpha * 0.4})`;
+            this.ctx.strokeStyle = `hsla(${p.hue}, 90%, 45%, ${p.alpha * 0.5})`;
             this.ctx.lineWidth = p.size * 0.8;
             this.ctx.beginPath();
             this.ctx.moveTo(p.x, p.y);
@@ -182,8 +181,8 @@ class LaminarSimulation {
         this.time += 0.02;
         this.updateMouse();
 
-        // Clear Canvas with subtle fade effect for particle trails
-        this.ctx.fillStyle = 'rgba(7, 12, 18, 0.25)';
+        // Clear Canvas with soft white fade effect
+        this.ctx.fillStyle = 'rgba(240, 247, 255, 0.35)';
         this.ctx.fillRect(0, 0, this.width, this.height);
 
         this.drawStreamlines();
