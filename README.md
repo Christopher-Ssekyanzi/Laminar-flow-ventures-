@@ -35,8 +35,8 @@ Welcome to the official web repository for **Laminar Flow Ventures**, a premier 
 
 ## 🚀 Pushing to GitHub & Enabling GitHub Pages
 
-Your local repository remote URL has been set to:
-`https://github.com/Christopher-Ssekyanzi/Laminar-Flow-Ventures.git`
+Your local repository remote URL is configured to:
+`https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-.git`
 
 ### Command to Push Code:
 Run this single command in your terminal (`c:\Users\austi\Downloads\Laminar Flow`):
@@ -45,12 +45,10 @@ Run this single command in your terminal (`c:\Users\austi\Downloads\Laminar Flow
 git push -u origin main
 ```
 
-*(If prompted by GitHub for credentials, sign in via browser popup or enter your Personal Access Token).*
-
 ---
 
 ### Step-by-Step: Enabling GitHub Pages Hosting
-1. Go to your repository on GitHub: **[github.com/Christopher-Ssekyanzi/Laminar-Flow-Ventures](https://github.com/Christopher-Ssekyanzi/Laminar-Flow-Ventures)**.
+1. Go to your repository on GitHub: **[github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-](https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-)**.
 2. Click **Settings** (top navigation tab).
 3. On the left sidebar, click **Pages** (under Code and automation).
 4. Under **Build and deployment** -> **Source**, select **Deploy from a branch**.
@@ -58,7 +56,7 @@ git push -u origin main
 6. Click **Save**.
 
 Your live website will be accessible at:
-🌐 **`https://christopher-ssekyanzi.github.io/Laminar-Flow-Ventures/`**
+🌐 **`https://christopher-ssekyanzi.github.io/Laminar-flow-ventures-/`**
 
 ---
 
