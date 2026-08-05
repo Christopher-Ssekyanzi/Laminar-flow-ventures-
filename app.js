@@ -1,5 +1,6 @@
 /* ==========================================================================
-   Laminar Flow Ventures - Master Interactive Application Logic
+   Laminar Flow Ventures Limited - Master Interactive Application Logic
+   Client Portal, Data Activation, & Hydraulic Calculator Engine
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPortfolio();
     initModal();
     initProducts();
+    initPortal();
     initForm();
     initSimWidget();
     updateYear();
@@ -43,6 +45,145 @@ function initNavbar() {
     });
 }
 
+/* CLIENT & ENGINEER PORTAL AUTHENTICATION & DATA ACTIVATION */
+function initPortal() {
+    const portalModal = document.getElementById('portal-modal');
+    const dashboardModal = document.getElementById('dashboard-modal');
+    
+    const portalBtn = document.getElementById('portal-login-btn');
+    const heroPortalBtn = document.getElementById('hero-portal-trigger');
+    const portalClose = document.getElementById('portal-close');
+    const dashClose = document.getElementById('dash-close');
+    const dashLogoutBtn = document.getElementById('dash-logout-btn');
+
+    const tabLoginBtn = document.getElementById('tab-login-btn');
+    const tabRegisterBtn = document.getElementById('tab-register-btn');
+    const loginForm = document.getElementById('portal-login-form');
+    const registerForm = document.getElementById('portal-register-form');
+
+    const demoClientBtn = document.getElementById('demo-client-btn');
+    const demoEngineerBtn = document.getElementById('demo-engineer-btn');
+
+    const navUserLabel = document.getElementById('nav-user-label');
+    const dashUserName = document.getElementById('dash-user-name');
+    const dashUserRole = document.getElementById('dash-user-role');
+
+    let currentUser = null;
+
+    function openPortal() {
+        if (currentUser) {
+            openDashboard();
+        } else {
+            if (portalModal) portalModal.classList.add('active');
+        }
+    }
+
+    function closePortal() {
+        if (portalModal) portalModal.classList.remove('active');
+    }
+
+    function openDashboard() {
+        closePortal();
+        if (dashboardModal) dashboardModal.classList.add('active');
+    }
+
+    function closeDashboard() {
+        if (dashboardModal) dashboardModal.classList.remove('active');
+    }
+
+    if (portalBtn) portalBtn.addEventListener('click', openPortal);
+    if (heroPortalBtn) heroPortalBtn.addEventListener('click', openPortal);
+    if (portalClose) portalClose.addEventListener('click', closePortal);
+    if (dashClose) dashClose.addEventListener('click', closeDashboard);
+
+    // Tab Switching
+    if (tabLoginBtn && tabRegisterBtn) {
+        tabLoginBtn.addEventListener('click', () => {
+            tabLoginBtn.classList.add('active');
+            tabRegisterBtn.classList.remove('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+        });
+
+        tabRegisterBtn.addEventListener('click', () => {
+            tabRegisterBtn.classList.add('active');
+            tabLoginBtn.classList.remove('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+        });
+    }
+
+    // Login Form Submit (Pre-configured for Supabase/Firebase Auth)
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            authenticateUser({
+                name: email.split('@')[0].toUpperCase(),
+                role: 'PROJECT CLIENT // ID: LFV-88402',
+                email: email
+            });
+        });
+    }
+
+    // Registration Submit
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            const company = document.getElementById('reg-company').value;
+            const type = document.getElementById('reg-type').value;
+
+            showToast(`Account Created for ${company}! Data Activated.`);
+            authenticateUser({
+                name: name,
+                role: `${type.toUpperCase()} ACCOUNT // ID: LFV-${Math.floor(10000 + Math.random() * 90000)}`,
+                company: company
+            });
+        });
+    }
+
+    // Demo Accounts for Quick Access
+    if (demoClientBtn) {
+        demoClientBtn.addEventListener('click', () => {
+            authenticateUser({
+                name: 'Eng. Christopher Ssekyanzi',
+                role: 'CLIENT ACCOUNT // ID: LFV-88402',
+                company: 'Laminar Flow Client Estate'
+            });
+        });
+    }
+
+    if (demoEngineerBtn) {
+        demoEngineerBtn.addEventListener('click', () => {
+            authenticateUser({
+                name: 'Eng. Christopher (Certified Lead)',
+                role: 'FIELD HYDRAULIC ENGINEER // ID: ENG-99201',
+                company: 'Laminar Flow Engineering Team'
+            });
+        });
+    }
+
+    function authenticateUser(userObj) {
+        currentUser = userObj;
+        if (dashUserName) dashUserName.textContent = currentUser.name;
+        if (dashUserRole) dashUserRole.textContent = currentUser.role;
+        if (navUserLabel) navUserLabel.textContent = 'My Dashboard';
+
+        showToast(`Welcome back, ${currentUser.name}!`);
+        openDashboard();
+    }
+
+    if (dashLogoutBtn) {
+        dashLogoutBtn.addEventListener('click', () => {
+            currentUser = null;
+            if (navUserLabel) navUserLabel.textContent = 'Client Portal';
+            closeDashboard();
+            showToast('Signed out successfully.');
+        });
+    }
+}
+
 /* Hydraulic & Laminar Flow Calculator Logic */
 function initCalculator() {
     const qRange = document.getElementById('calc-flow-range');
@@ -75,9 +216,9 @@ function initCalculator() {
 
     function calculate() {
         if (!qNum || !dNum || !lNum) return;
-        const Q = parseFloat(qNum.value) / 1000; // convert L/s to m^3/s
-        const D = parseFloat(dNum.value) / 1000; // convert mm to meters
-        const L = parseFloat(lNum.value);       // meters
+        const Q = parseFloat(qNum.value) / 1000;
+        const D = parseFloat(dNum.value) / 1000;
+        const L = parseFloat(lNum.value);
 
         if (!Q || !D || !L) return;
 
@@ -137,7 +278,7 @@ function initProducts() {
             const formMsg = document.getElementById('form-message');
             if (formService) formService.value = 'sales';
             if (formMsg && productName) {
-                formMsg.value = `Product Sales Quote Request:\n- Product: ${productName}\n- Quantity: 1 Set / System\n- Delivery Location: Kampala / Uganda`;
+                formMsg.value = `Product Sales Quote Request:\n- Product: ${productName}\n- Quantity: 1 Set / System`;
             }
             showToast(`Selected "${productName}". Scrolling to quote form...`);
         });
@@ -179,11 +320,11 @@ function initModal() {
             title: "Water Engineering Works Specifications",
             content: `
                 <div class="modal-spec-box">
-                    <p class="modal-intro">Laminar Flow Ventures provides comprehensive EPC (Engineering, Procurement, and Construction) for heavy water works.</p>
+                    <p class="modal-intro">Laminar Flow Ventures Limited provides comprehensive EPC (Engineering, Procurement, and Construction) for heavy water works.</p>
                     <ul class="modal-spec-list">
                         <li><strong>Civil & Structural:</strong> Reinforced concrete reservoirs, pump foundations, intake towers, spillways.</li>
                         <li><strong>Hydraulic Mechanical:</strong> High-pressure piping assemblies (HDPE, Ductile Iron, Stainless Steel 316L).</li>
-                        <li><strong>Electrical & Telemetry:</strong> Motor control centers (MCC), VFD drives, solar arrays, SCADA integration.</li>
+                        <li><strong>Electrical & Telemetry:</strong> Motor control centers (MCC), VFD drives, SCADA integration.</li>
                         <li><strong>Quality Assurance:</strong> ISO 9001 quality audits, hydrostatic pressure testing up to 25 bar.</li>
                     </ul>
                 </div>
@@ -206,11 +347,11 @@ function initModal() {
             title: "Equipment & Product Procurement Catalog",
             content: `
                 <div class="modal-spec-box">
-                    <p class="modal-intro">We supply industrial-tier pumps, solar borehole sets, laminar flow nozzles, and smart flow meters from globally certified OEMs.</p>
+                    <p class="modal-intro">We supply industrial-tier pumps, laminar flow nozzles, and smart flow meters from globally certified OEMs.</p>
                     <ul class="modal-spec-list">
-                        <li><strong>Pumps:</strong> Centrifugal, vertical turbine, solar submersible sets (0.5 to 500 L/s).</li>
+                        <li><strong>Pumps:</strong> Centrifugal, vertical turbine, submersible sets (0.5 to 500 L/s).</li>
                         <li><strong>Valves:</strong> Pressure reducing (PRV), air release, butterfly, non-return check valves.</li>
-                        <li><strong>Smart IoT:</strong> Ultrasonic transit-time meters, wireless telemetry loggers with solar backing.</li>
+                        <li><strong>Smart IoT:</strong> Ultrasonic transit-time meters, wireless telemetry loggers.</li>
                     </ul>
                 </div>
             `

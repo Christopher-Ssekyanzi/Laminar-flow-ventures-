@@ -1,6 +1,6 @@
 /* ==========================================================================
    Laminar Flow Ventures Limited - Master Design System & Stylesheet
-   Theme: Pristine White, Hydro Blue Engineering & Official Corporate Branding
+   Theme: Pristine White, Hydro Blue Engineering & Client Portal Authentication
    ========================================================================== */
 
 :root {
@@ -171,6 +171,275 @@ h1, h2, h3, h4, h5, h6 {
 
 .portfolio-card:hover .portfolio-real-img {
     transform: scale(1.06);
+}
+
+/* PORTAL MODAL & DASHBOARD STYLES */
+.portal-modal-card {
+    max-width: 520px;
+}
+
+.portal-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.portal-brand {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.portal-logo-img {
+    height: 64px;
+    width: auto;
+    object-fit: contain;
+}
+
+.portal-header h2 {
+    font-size: 1.6rem;
+    color: var(--text-main);
+}
+
+.portal-header p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.portal-tabs {
+    display: flex;
+    background: #F1F5F9;
+    border-radius: var(--radius-sm);
+    padding: 4px;
+    margin-bottom: 24px;
+}
+
+.portal-tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.portal-tab.active {
+    background: #FFFFFF;
+    color: var(--primary-cyan);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.portal-form {
+    display: none;
+}
+
+.portal-form.active {
+    display: block;
+}
+
+.portal-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.forgot-link {
+    color: var(--primary-cyan);
+    font-weight: 600;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.portal-divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.portal-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--border-subtle);
+    z-index: 1;
+}
+
+.portal-divider span {
+    position: relative;
+    z-index: 2;
+    background: #FFFFFF;
+    padding: 0 12px;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.demo-login-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* CLIENT DASHBOARD MODAL STYLES */
+.dashboard-modal-card {
+    max-width: 860px;
+    padding: 32px;
+}
+
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+
+.dash-user-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.dash-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #E0F2FE;
+    color: var(--primary-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.dash-user-info h2 {
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+}
+
+.dash-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-cyan);
+    letter-spacing: 1px;
+}
+
+.dash-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dash-card {
+    background: #F8FAFC;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 20px;
+}
+
+.dash-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.dash-card-header h4 {
+    font-size: 0.95rem;
+    color: var(--primary-cyan);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dash-card-body h3 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.dash-subtext {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.progress-bar-wrapper {
+    width: 100%;
+    height: 10px;
+    background: #E2E8F0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-cyan), var(--accent-emerald));
+    border-radius: 5px;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.progress-labels strong {
+    color: var(--accent-emerald);
+}
+
+.dash-action-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.dash-equipment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.equipment-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+}
+
+.equipment-row strong {
+    display: block;
+    font-size: 0.9rem;
+}
+
+.equipment-row span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
 /* UI Cards & Panels */
@@ -640,36 +909,6 @@ h1, h2, h3, h4, h5, h6 {
 /* About Section */
 .about-image-wrapper {
     position: relative;
-}
-
-.floating-badge {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    background: #FFFFFF;
-    border: 1px solid var(--border-subtle);
-    padding: 16px 20px;
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
-}
-
-.floating-badge i {
-    font-size: 2rem;
-    color: var(--primary-cyan);
-}
-
-.floating-badge strong {
-    display: block;
-    font-size: 0.95rem;
-    color: var(--text-main);
-}
-
-.floating-badge span {
-    font-size: 0.8rem;
-    color: var(--text-muted);
 }
 
 .feature-list {
