@@ -14,7 +14,7 @@
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    <link rel="stylesheet" href="styles.css?v=4.0">
+    <link rel="stylesheet" href="styles.css?v=6.0">
 </head>
 <body>
 
@@ -30,7 +30,6 @@
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#products" class="nav-link">Equipment Sales</a>
-                <a href="#calculator" class="nav-link">Flow Calculator</a>
                 <a href="#portfolio" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
@@ -355,86 +354,6 @@
         </div>
     </section>
 
-    <!-- Interactive Laminar Flow & Pipe Calculator Widget -->
-    <section class="section calculator-section" id="calculator">
-        <div class="container">
-            <div class="glass-panel calc-panel">
-                <div class="grid grid-2">
-                    <div class="calc-info">
-                        <div class="section-tag">INTERACTIVE HYDRAULIC TOOL</div>
-                        <h2 class="section-title">Laminar Flow & Pipe Sizing Calculator</h2>
-                        <p class="section-desc">
-                            Estimate fluid velocity, flow regime (Reynolds Number), friction head loss, and rough engineering project scope in real time.
-                        </p>
-
-                        <div class="calc-formula-card">
-                            <div class="formula-title"><i class="fa-solid fa-square-root-variable"></i> Fluid Physics Engine</div>
-                            <div class="formula-code">
-                                <code>Velocity V = (4 × Q) / (π × D²)</code><br>
-                                <code>Reynolds Re = (ρ × V × D) / μ</code>
-                            </div>
-                            <p class="formula-sub">Laminar flow status is maintained when Re &lt; 2,300, delivering up to 35% lower pumping energy consumption.</p>
-                        </div>
-                    </div>
-
-                    <div class="calc-form-wrapper">
-                        <div class="calc-box">
-                            <div class="input-group">
-                                <label for="calc-flow-range">Desired Flow Rate Q (Liters / Second):</label>
-                                <div class="slider-with-number">
-                                    <input type="range" id="calc-flow-range" min="1" max="500" value="50">
-                                    <input type="number" id="calc-flow-num" min="1" max="500" value="50">
-                                    <span class="unit">L/s</span>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="calc-dia-range">Pipe Inner Diameter D (Millimeters):</label>
-                                <div class="slider-with-number">
-                                    <input type="range" id="calc-dia-range" min="20" max="1000" value="200">
-                                    <input type="number" id="calc-dia-num" min="20" max="1000" value="200">
-                                    <span class="unit">mm</span>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="calc-len-range">Piping Distance L (Meters):</label>
-                                <div class="slider-with-number">
-                                    <input type="range" id="calc-len-range" min="10" max="5000" value="500">
-                                    <input type="number" id="calc-len-num" min="10" max="5000" value="500">
-                                    <span class="unit">m</span>
-                                </div>
-                            </div>
-
-                            <div class="calc-results-card">
-                                <div class="res-row">
-                                    <span>Fluid Velocity (V):</span>
-                                    <strong id="res-velocity">1.59 m/s</strong>
-                                </div>
-                                <div class="res-row">
-                                    <span>Reynolds Number (Re):</span>
-                                    <strong id="res-reynolds">318,000</strong>
-                                </div>
-                                <div class="res-row">
-                                    <span>Flow State:</span>
-                                    <span class="status-pill turbulent" id="res-regime">Turbulent Flow</span>
-                                </div>
-                                <div class="res-row">
-                                    <span>Est. Friction Head Loss:</span>
-                                    <strong id="res-headloss">4.12 m</strong>
-                                </div>
-                            </div>
-
-                            <button id="calc-request-btn" class="btn btn-primary btn-block">
-                                <i class="fa-solid fa-file-signature"></i> Request Custom Engineering Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Portfolio & Projects Gallery -->
     <section class="section portfolio" id="portfolio">
         <div class="container">
@@ -652,7 +571,6 @@
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#products">Equipment Sales</a></li>
-                        <li><a href="#calculator">Flow Calculator</a></li>
                         <li><a href="#portfolio">Projects</a></li>
                     </ul>
                 </div>
@@ -885,7 +803,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="laminar_simulation.js?v=5.0"></script>
-    <script src="app.js?v=5.0"></script>
+    <script src="laminar_simulation.js?v=6.0"></script>
+    <script src="app.js?v=6.0"></script>
 </body>
 </html>

@@ -1,12 +1,11 @@
 /* ==========================================================================
    Laminar Flow Ventures Limited - Master Interactive Application Logic
-   Client Portal, Data Activation, & Hydraulic Calculator Engine
+   Client Portal, Data Activation, & Hydraulic Engineering System
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     try { initNavbar(); } catch(e) { console.error(e); }
     try { initPortal(); } catch(e) { console.error(e); }
-    try { initCalculator(); } catch(e) { console.error(e); }
     try { initPortfolio(); } catch(e) { console.error(e); }
     try { initModal(); } catch(e) { console.error(e); }
     try { initProducts(); } catch(e) { console.error(e); }
@@ -126,7 +125,7 @@ function initPortal() {
         });
     }
 
-    // Login Form Submit (Pre-configured for Supabase/Firebase Auth)
+    // Login Form Submit
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -194,90 +193,6 @@ function initPortal() {
             if (navUserLabel) navUserLabel.textContent = 'Client Portal';
             window.closeDashboard();
             showToast('Signed out successfully.');
-        });
-    }
-}
-
-/* Hydraulic & Laminar Flow Calculator Logic */
-function initCalculator() {
-    const qRange = document.getElementById('calc-flow-range');
-    const qNum = document.getElementById('calc-flow-num');
-    const dRange = document.getElementById('calc-dia-range');
-    const dNum = document.getElementById('calc-dia-num');
-    const lRange = document.getElementById('calc-len-range');
-    const lNum = document.getElementById('calc-len-num');
-
-    const resVelocity = document.getElementById('res-velocity');
-    const resReynolds = document.getElementById('res-reynolds');
-    const resRegime = document.getElementById('res-regime');
-    const resHeadloss = document.getElementById('res-headloss');
-
-    function sync(range, num) {
-        if (!range || !num) return;
-        range.addEventListener('input', () => {
-            num.value = range.value;
-            calculate();
-        });
-        num.addEventListener('input', () => {
-            range.value = num.value;
-            calculate();
-        });
-    }
-
-    sync(qRange, qNum);
-    sync(dRange, dNum);
-    sync(lRange, lNum);
-
-    function calculate() {
-        if (!qNum || !dNum || !lNum) return;
-        const Q = parseFloat(qNum.value) / 1000;
-        const D = parseFloat(dNum.value) / 1000;
-        const L = parseFloat(lNum.value);
-
-        if (!Q || !D || !L) return;
-
-        const A = Math.PI * Math.pow(D / 2, 2);
-        const V = Q / A;
-        const Re = (998 * V * D) / 0.001002;
-
-        let f = (Re < 2300) ? (64 / Re) : (0.316 / Math.pow(Re, 0.25));
-        if (isNaN(f) || !isFinite(f)) f = 0.02;
-
-        const g = 9.81;
-        const hf = f * (L / D) * (Math.pow(V, 2) / (2 * g));
-
-        if (resVelocity) resVelocity.textContent = `${V.toFixed(2)} m/s`;
-        if (resReynolds) resReynolds.textContent = Math.round(Re).toLocaleString();
-        if (resHeadloss) resHeadloss.textContent = `${hf.toFixed(2)} m`;
-
-        if (resRegime) {
-            if (Re < 2300) {
-                resRegime.textContent = 'Laminar Flow (Optimal)';
-                resRegime.className = 'status-pill laminar';
-            } else if (Re < 4000) {
-                resRegime.textContent = 'Transitional Flow';
-                resRegime.className = 'status-pill turbulent';
-                resRegime.style.borderColor = '#FFC107';
-                resRegime.style.color = '#FFC107';
-            } else {
-                resRegime.textContent = 'Turbulent Flow';
-                resRegime.className = 'status-pill turbulent';
-            }
-        }
-    }
-
-    calculate();
-
-    const requestBtn = document.getElementById('calc-request-btn');
-    if (requestBtn) {
-        requestBtn.addEventListener('click', () => {
-            const formService = document.getElementById('form-service');
-            const formMsg = document.getElementById('form-message');
-            if (formService) formService.value = 'designs';
-            if (formMsg && qNum && dNum && lNum && resVelocity && resRegime) {
-                formMsg.value = `Hydraulic Calculation Spec:\n- Flow Rate (Q): ${qNum.value} L/s\n- Pipe Diameter (D): ${dNum.value} mm\n- Distance (L): ${lNum.value} m\n- Velocity (V): ${resVelocity.textContent}\n- Flow State: ${resRegime.textContent}`;
-            }
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
     }
 }
