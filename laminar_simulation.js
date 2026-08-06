@@ -1,6 +1,7 @@
 /* ==========================================================================
    Laminar Flow Simulation - HTML5 Canvas Fluid Streamline Engine
    Author: Laminar Flow Ventures
+   Features: Watermark Logo Integration & Interactive Streamlines
    ========================================================================== */
 
 class LaminarSimulation {
@@ -24,6 +25,14 @@ class LaminarSimulation {
             targetX: -1000,
             targetY: -1000,
             active: false
+        };
+
+        // Load Official Corporate Logo for Background Watermark Stream
+        this.logoImage = new Image();
+        this.logoImage.src = 'logo.jpg';
+        this.logoLoaded = false;
+        this.logoImage.onload = () => {
+            this.logoLoaded = true;
         };
         
         this.init();
@@ -90,7 +99,6 @@ class LaminarSimulation {
         let vx = this.baseVelocity;
         let vy = 0;
         
-        // Mouse influence
         if (this.mouse.active) {
             const dx = x - this.mouse.x;
             const dy = y - this.mouse.y;
@@ -100,16 +108,13 @@ class LaminarSimulation {
             if (dist < maxDist) {
                 const force = (1 - dist / maxDist);
                 if (this.mode === 'laminar') {
-                    // Smooth streamline deflection around obstacle (laminar potential flow)
                     const angle = Math.atan2(dy, dx);
                     vy += Math.sin(angle) * force * 4.5;
                     vx += Math.cos(angle) * force * 1.5;
                 } else if (this.mode === 'vortex') {
-                    // Swirling vortex around cursor
                     vy += -dx * force * 0.05;
                     vx += dy * force * 0.05;
                 } else if (this.mode === 'turbulent') {
-                    // Turbulent random fluctuations
                     vy += (Math.sin(x * 0.05 + this.time * 5) + Math.cos(y * 0.05)) * force * 8;
                     vx += (Math.cos(y * 0.05 + this.time * 5)) * force * 4;
                 }
@@ -123,6 +128,19 @@ class LaminarSimulation {
         return { vx, vy };
     }
 
+    drawLogoWatermark() {
+        if (!this.logoLoaded) return;
+        const logoWidth = Math.min(this.width * 0.42, 420);
+        const logoHeight = logoWidth * (this.logoImage.height / this.logoImage.width);
+        const x = (this.width - logoWidth) / 2;
+        const y = (this.height - logoHeight) / 2 - 30;
+
+        this.ctx.save();
+        this.ctx.globalAlpha = 0.22; // High-definition watermark visibility
+        this.ctx.drawImage(this.logoImage, x, y, logoWidth, logoHeight);
+        this.ctx.restore();
+    }
+
     drawStreamlines() {
         const resolution = 25;
         this.streamlines.forEach((line, idx) => {
@@ -130,9 +148,9 @@ class LaminarSimulation {
             this.ctx.lineWidth = idx % 3 === 0 ? 1.8 : 1.0;
             
             const gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-            gradient.addColorStop(0, 'rgba(0, 119, 255, 0.05)');
-            gradient.addColorStop(0.5, 'rgba(0, 119, 255, 0.3)');
-            gradient.addColorStop(1, 'rgba(0, 184, 217, 0.05)');
+            gradient.addColorStop(0, 'rgba(0, 119, 255, 0.08)');
+            gradient.addColorStop(0.5, 'rgba(0, 119, 255, 0.35)');
+            gradient.addColorStop(1, 'rgba(0, 184, 217, 0.08)');
             this.ctx.strokeStyle = gradient;
 
             let currY = line.baseY;
@@ -161,13 +179,11 @@ class LaminarSimulation {
             if (p.y < 0) p.y = this.height;
             if (p.y > this.height) p.y = 0;
 
-            // Render Particle with Glow on Light Background
             this.ctx.fillStyle = `hsla(${p.hue}, 90%, 45%, ${p.alpha})`;
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             this.ctx.fill();
 
-            // Particle Trail
             this.ctx.strokeStyle = `hsla(${p.hue}, 90%, 45%, ${p.alpha * 0.5})`;
             this.ctx.lineWidth = p.size * 0.8;
             this.ctx.beginPath();
@@ -185,6 +201,10 @@ class LaminarSimulation {
         this.ctx.fillStyle = 'rgba(240, 247, 255, 0.35)';
         this.ctx.fillRect(0, 0, this.width, this.height);
 
+        // Draw Official Logo Watermark in Stream Center
+        this.drawLogoWatermark();
+
+        // Draw Fluid Streamlines & Particles flowing around/over logo
         this.drawStreamlines();
         this.drawParticles();
 
