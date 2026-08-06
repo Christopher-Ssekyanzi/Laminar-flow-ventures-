@@ -735,15 +735,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 100vh;
-    padding-top: calc(var(--nav-height) + 70px);
+    min-height: 85vh;
+    padding-top: calc(var(--nav-height) + 50px);
     padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(180deg, var(--bg-hydro-ice) 0%, #FFFFFF 100%);
+    background: transparent;
 }
 
 #laminar-canvas {
@@ -761,7 +761,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.9) 100%);
+    background: transparent;
     z-index: 2;
     pointer-events: none;
 }
@@ -804,7 +804,7 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.03em;
     margin-bottom: 24px;
     font-weight: 800;
-    color: var(--text-main);
+    color: #0F172A;
 }
 
 .hero-subtitle {
