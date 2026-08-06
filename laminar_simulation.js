@@ -1,7 +1,6 @@
 /* ==========================================================================
    Laminar Flow Simulation - HTML5 Canvas Fluid Streamline Engine
    Author: Laminar Flow Ventures
-   Features: Watermark Logo Integration & Interactive Streamlines
    ========================================================================== */
 
 class LaminarSimulation {
@@ -25,14 +24,6 @@ class LaminarSimulation {
             targetX: -1000,
             targetY: -1000,
             active: false
-        };
-
-        // Load Official Corporate Logo for Background Watermark Stream
-        this.logoImage = new Image();
-        this.logoImage.src = 'logo.jpg';
-        this.logoLoaded = false;
-        this.logoImage.onload = () => {
-            this.logoLoaded = true;
         };
         
         this.init();
@@ -128,19 +119,6 @@ class LaminarSimulation {
         return { vx, vy };
     }
 
-    drawLogoWatermark() {
-        if (!this.logoLoaded) return;
-        const logoWidth = Math.min(this.width * 0.42, 420);
-        const logoHeight = logoWidth * (this.logoImage.height / this.logoImage.width);
-        const x = (this.width - logoWidth) / 2;
-        const y = (this.height - logoHeight) / 2 - 30;
-
-        this.ctx.save();
-        this.ctx.globalAlpha = 0.22; // High-definition watermark visibility
-        this.ctx.drawImage(this.logoImage, x, y, logoWidth, logoHeight);
-        this.ctx.restore();
-    }
-
     drawStreamlines() {
         const resolution = 25;
         this.streamlines.forEach((line, idx) => {
@@ -148,9 +126,9 @@ class LaminarSimulation {
             this.ctx.lineWidth = idx % 3 === 0 ? 1.8 : 1.0;
             
             const gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-            gradient.addColorStop(0, 'rgba(0, 119, 255, 0.08)');
-            gradient.addColorStop(0.5, 'rgba(0, 119, 255, 0.35)');
-            gradient.addColorStop(1, 'rgba(0, 184, 217, 0.08)');
+            gradient.addColorStop(0, 'rgba(0, 119, 255, 0.05)');
+            gradient.addColorStop(0.5, 'rgba(0, 119, 255, 0.3)');
+            gradient.addColorStop(1, 'rgba(0, 184, 217, 0.05)');
             this.ctx.strokeStyle = gradient;
 
             let currY = line.baseY;
@@ -201,10 +179,6 @@ class LaminarSimulation {
         this.ctx.fillStyle = 'rgba(240, 247, 255, 0.35)';
         this.ctx.fillRect(0, 0, this.width, this.height);
 
-        // Draw Official Logo Watermark in Stream Center
-        this.drawLogoWatermark();
-
-        // Draw Fluid Streamlines & Particles flowing around/over logo
         this.drawStreamlines();
         this.drawParticles();
 
