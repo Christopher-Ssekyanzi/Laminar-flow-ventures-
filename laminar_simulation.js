@@ -1,7 +1,7 @@
 /* ==========================================================================
    Laminar Flow Simulation - HTML5 Canvas Fluid Streamline Engine
    Author: Laminar Flow Ventures
-   Theme: Ultra-Faint, Subtle Glass Ghost Fluid Motion
+   Theme: Ultra-Faint Pastel Water Motion (Blending into Pure White Canvas)
    ========================================================================== */
 
 class LaminarSimulation {
@@ -12,11 +12,11 @@ class LaminarSimulation {
         
         this.particles = [];
         this.streamlines = [];
-        this.particleCount = 100;
-        this.streamlineCount = 20;
+        this.particleCount = 80;
+        this.streamlineCount = 18;
         
         this.mode = 'laminar'; // 'laminar', 'vortex', 'turbulent'
-        this.baseVelocity = 2.0;
+        this.baseVelocity = 1.8;
         this.time = 0;
         
         this.mouse = {
@@ -63,9 +63,9 @@ class LaminarSimulation {
                 x: Math.random() * this.width,
                 y: Math.random() * this.height,
                 size: Math.random() * 1.2 + 0.5,
-                speed: Math.random() * 0.5 + 0.3,
-                alpha: Math.random() * 0.05 + 0.01, // Ultra faint (1% - 6% opacity)
-                hue: Math.random() * 30 + 195
+                speed: Math.random() * 0.4 + 0.2,
+                alpha: Math.random() * 0.08 + 0.02, // Extremely soft, almost blending into white
+                hue: Math.random() * 20 + 200
             });
         }
     }
@@ -95,41 +95,41 @@ class LaminarSimulation {
             const dx = x - this.mouse.x;
             const dy = y - this.mouse.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            const maxDist = 200;
+            const maxDist = 180;
             
             if (dist < maxDist) {
                 const force = (1 - dist / maxDist);
                 if (this.mode === 'laminar') {
                     const angle = Math.atan2(dy, dx);
-                    vy += Math.sin(angle) * force * 2.5;
-                    vx += Math.cos(angle) * force * 1.0;
+                    vy += Math.sin(angle) * force * 2.0;
+                    vx += Math.cos(angle) * force * 0.8;
                 } else if (this.mode === 'vortex') {
-                    vy += -dx * force * 0.03;
-                    vx += dy * force * 0.03;
+                    vy += -dx * force * 0.02;
+                    vx += dy * force * 0.02;
                 } else if (this.mode === 'turbulent') {
-                    vy += (Math.sin(x * 0.05 + this.time * 5) + Math.cos(y * 0.05)) * force * 4;
-                    vx += (Math.cos(y * 0.05 + this.time * 5)) * force * 2;
+                    vy += (Math.sin(x * 0.05 + this.time * 4) + Math.cos(y * 0.05)) * force * 3;
+                    vx += (Math.cos(y * 0.05 + this.time * 4)) * force * 1.5;
                 }
             }
         }
         
         if (this.mode === 'turbulent') {
-            vy += Math.sin(x * 0.01 + y * 0.01 + this.time) * 0.8;
+            vy += Math.sin(x * 0.01 + y * 0.01 + this.time) * 0.5;
         }
         
         return { vx, vy };
     }
 
     drawStreamlines() {
-        const resolution = 30;
+        const resolution = 35;
         this.streamlines.forEach((line) => {
             this.ctx.beginPath();
-            this.ctx.lineWidth = 0.5; // Ultra-delicate whisper thin stroke
+            this.ctx.lineWidth = 0.4; // Very fine hairline stroke
             
             const gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-            gradient.addColorStop(0, 'rgba(0, 119, 255, 0.003)');
-            gradient.addColorStop(0.5, 'rgba(0, 119, 255, 0.035)'); // Barely visible whisper ghost line
-            gradient.addColorStop(1, 'rgba(0, 184, 217, 0.003)');
+            gradient.addColorStop(0, 'rgba(0, 119, 255, 0.001)');
+            gradient.addColorStop(0.5, 'rgba(0, 119, 255, 0.02)'); // Barely visible light blue trace
+            gradient.addColorStop(1, 'rgba(0, 184, 217, 0.001)');
             this.ctx.strokeStyle = gradient;
 
             let currY = line.baseY;
@@ -158,12 +158,13 @@ class LaminarSimulation {
             if (p.y < 0) p.y = this.height;
             if (p.y > this.height) p.y = 0;
 
-            this.ctx.fillStyle = `hsla(${p.hue}, 70%, 50%, ${p.alpha})`;
+            // Ultra-light pastel sky blue that blends smoothly into white background
+            this.ctx.fillStyle = `hsla(${p.hue}, 45%, 88%, ${p.alpha})`;
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             this.ctx.fill();
 
-            this.ctx.strokeStyle = `hsla(${p.hue}, 70%, 50%, ${p.alpha * 0.3})`;
+            this.ctx.strokeStyle = `hsla(${p.hue}, 45%, 92%, ${p.alpha * 0.5})`;
             this.ctx.lineWidth = p.size * 0.5;
             this.ctx.beginPath();
             this.ctx.moveTo(p.x, p.y);
@@ -176,8 +177,8 @@ class LaminarSimulation {
         this.time += 0.01;
         this.updateMouse();
 
-        // Clear Canvas with clean soft fade
-        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        // Clear Canvas almost completely to pure white (85% white fade)
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
         this.ctx.fillRect(0, 0, this.width, this.height);
 
         this.drawStreamlines();
