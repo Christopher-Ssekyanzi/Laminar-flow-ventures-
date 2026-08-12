@@ -239,11 +239,18 @@ function initPortfolio() {
 }
 
 /* Modal Specs System */
+window.closeModal = function() {
+    const modal = document.getElementById('spec-modal');
+    if (modal) modal.classList.remove('active');
+};
+
 function initModal() {
     const modal = document.getElementById('spec-modal');
     const modalClose = document.getElementById('modal-close');
     const modalBody = document.getElementById('modal-body');
     const triggers = document.querySelectorAll('.modal-trigger');
+
+    if (!modal) return;
 
     const specData = {
         works: {
@@ -289,13 +296,14 @@ function initModal() {
     };
 
     triggers.forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             const key = btn.dataset.service;
-            if (specData[key]) {
+            if (specData[key] && modalBody) {
                 modalBody.innerHTML = `
                     <h2 class="gradient-text" style="margin-bottom: 16px;">${specData[key].title}</h2>
                     ${specData[key].content}
-                    <button class="btn btn-primary" style="margin-top: 24px; width: 100%;" onclick="closeModal()">Close Details</button>
+                    <button class="btn btn-primary btn-close-modal-action" style="margin-top: 24px; width: 100%;">Close Details</button>
                 `;
                 modal.classList.add('active');
             }
@@ -303,18 +311,30 @@ function initModal() {
     });
 
     if (modalClose) {
-        modalClose.addEventListener('click', closeModal);
-    }
-
-    window.closeModal = function() {
-        modal.classList.remove('active');
-    };
-
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
+        modalClose.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.closeModal();
         });
     }
+
+    // Universal Event Delegation for modal close
+    modal.addEventListener('click', (e) => {
+        if (
+            e.target === modal || 
+            e.target.closest('#modal-close') || 
+            e.target.closest('.modal-close') || 
+            e.target.closest('.btn-close-modal-action')
+        ) {
+            window.closeModal();
+        }
+    });
+
+    // Keyboard ESC key handler
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            window.closeModal();
+        }
+    });
 }
 
 /* Simulation Controls Binding */
