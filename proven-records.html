@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Laminar Flow Ventures Limited - Proven Records & On-Site Works. Commissioned borehole headworks, pumping station manifolds, yield discharge testing, and hydraulic infrastructure.">
+    <title>Proven Records & On-Site Works | Laminar Flow Ventures Limited</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=22.0">
+</head>
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <div class="top-bar-left">
+                <span><i class="fa-solid fa-location-dot"></i> Along Buremba Kakoba Road, Mbarara City (U)</span>
+                <span><i class="fa-solid fa-envelope"></i> larminaflowventures@gmail.com</span>
+                <span><i class="fa-solid fa-phone"></i> +256 773 071 425</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://wa.me/256758619476" target="_blank" aria-label="WhatsApp" class="top-social-link" title="Chat on WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://www.tiktok.com/@laminarflowventures" target="_blank" aria-label="TikTok" class="top-social-link" title="Follow on TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-" target="_blank" aria-label="GitHub" class="top-social-link" title="GitHub Repository">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo-wrapper" title="Laminar Flow Ventures Limited">
+                <img src="logo.jpg" alt="Laminar Flow Ventures Logo" class="header-logo-img">
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="proven-records.html" class="nav-link active">Proven Records</a>
+                <a href="index.html#products" class="nav-link">Equipment Sales</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-outline btn-sm" onclick="window.openClientPortal()">
+                    <i class="fa-solid fa-user-lock"></i> <span id="nav-user-label">Client Portal</span>
+                </button>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO HEADER -->
+    <section class="section" style="padding-top: calc(var(--nav-height) + 40px); background: #F8FAFC; border-bottom: 1px solid var(--border-subtle);">
+        <div class="container text-center">
+            <div style="margin-bottom: 16px;">
+                <a href="index.html" class="btn btn-glass btn-sm"><i class="fa-solid fa-arrow-left"></i> Return to Homepage</a>
+            </div>
+            <div class="section-tag">DOCUMENTED ON-SITE WORKS</div>
+            <h1 class="section-title" style="font-size: clamp(2rem, 5vw, 3rem);">Proven Engineering Records & Project Showcase</h1>
+            <p class="section-subtitle" style="max-width: 760px;">
+                Verified field installations, high-volume borehole yield tests, pumping station manifolds, and commissioned municipal water infrastructure across East Africa.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROVEN RECORDS GALLERY SECTION -->
+    <section class="section portfolio" id="proven-gallery">
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Proven Records</button>
+                <button class="filter-btn" data-filter="works">Field Engineering Works</button>
+                <button class="filter-btn" data-filter="testing">Yield & Flow Testing</button>
+                <button class="filter-btn" data-filter="designs">Designs & Blueprints</button>
+            </div>
+
+            <!-- Grid Items -->
+            <div class="grid grid-3 portfolio-grid">
+                <!-- Record 1: Real On-Site Borehole Headworks Image -->
+                <div class="glass-card portfolio-card real-project" data-category="works">
+                    <div class="portfolio-thumb">
+                        <img src="project_borehole_headworks.jpg" alt="Turnkey Borehole Headworks & Flanged Piping Installation" class="portfolio-real-img">
+                        <span class="category-tag">Field Construction</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Turnkey Borehole Headworks & Infrastructure</h3>
+                        <p>Reinforced concrete headworks slab, blue flanged piping, non-return check valves, and security perimeter fencing by Laminar Flow engineers.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-gears"></i> Heavy Works</span>
+                            <span><i class="fa-solid fa-check-double"></i> Commissioned</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Record 2: Real On-Site Manifold Installation Image -->
+                <div class="glass-card portfolio-card real-project" data-category="works">
+                    <div class="portfolio-thumb">
+                        <img src="project_manifold_installation.jpg" alt="Pumping Station Manifold & Pressure Gauge Calibration" class="portfolio-real-img">
+                        <span class="category-tag">Field Installation</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Pump Station Manifold & Control Room Assembly</h3>
+                        <p>Multi-valve blue distribution manifold installation, pressure gauge calibration, and automated control panel wiring.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-user-gear"></i> Certified Engineers</span>
+                            <span><i class="fa-solid fa-gauge"></i> Pressure Tested</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Record 3: Real Field Discharge Testing Photo -->
+                <div class="glass-card portfolio-card real-project" data-category="testing">
+                    <div class="portfolio-thumb">
+                        <img src="project_discharge_yield_testing.jpg" alt="High-Volume Borehole Yield & Flow Rate Discharge Testing" class="portfolio-real-img">
+                        <span class="category-tag">Field Testing</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Borehole Yield & Flow Rate Discharge Testing</h3>
+                        <p>High-volume pumping drawdown test, discharge flow rate measurement, and water quality sampling prior to grid integration.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-droplet"></i> High Yield Flow</span>
+                            <span><i class="fa-solid fa-flask"></i> Quality Tested</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Record 4 -->
+                <div class="glass-card portfolio-card" data-category="works">
+                    <div class="portfolio-thumb">
+                        <div class="thumb-graphic pipe-net"></div>
+                        <span class="category-tag">Bulk Piping</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Cross-County Bulk Water Pipeline</h3>
+                        <p>Installation of 42km HDPE pressure mains with smart transient surge tanks and air release valves.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-route"></i> 42 km Route</span>
+                            <span><i class="fa-solid fa-faucet-drip"></i> Zero Surge</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Record 5 -->
+                <div class="glass-card portfolio-card" data-category="designs">
+                    <div class="portfolio-thumb">
+                        <div class="thumb-graphic cad-plan"></div>
+                        <span class="category-tag">CFD Design</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Laminar Fountain Nozzle Array Design</h3>
+                        <p>Precision CFD nozzle array design generating glass-like crystal clear water arcs for architectural installations.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-wand-magic-sparkles"></i> Architectural</span>
+                            <span><i class="fa-solid fa-droplet"></i> Laminar Nozzles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Record 6 -->
+                <div class="glass-card portfolio-card" data-category="testing">
+                    <div class="portfolio-thumb">
+                        <div class="thumb-graphic meter-iot"></div>
+                        <span class="category-tag">Telemetry</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Smart Telemetry Metering Fleet</h3>
+                        <p>Deployment of 500+ cellular connected ultrasonic flowmeters for municipal monitoring.</p>
+                        <div class="portfolio-meta">
+                            <span><i class="fa-solid fa-wifi"></i> IoT Connected</span>
+                            <span><i class="fa-solid fa-chart-line"></i> Live Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="section" style="background: var(--lfv-navy-dark); color: #FFFFFF; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 12px;">Need Similar Engineering Works for Your Site?</h2>
+            <p style="color: #94A3B8; max-width: 600px; margin: 0 auto 24px;">
+                Our certified engineers are available for site surveys, borehole testing, civil construction, and equipment supply.
+            </p>
+            <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#contact" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Request Project Proposal</a>
+                <a href="https://wa.me/256758619476" target="_blank" class="btn btn-glass btn-lg" style="color: #FFFFFF; border-color: rgba(255,255,255,0.2);"><i class="fa-brands fa-whatsapp"></i> Chat with Lead Engineer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="logo.jpg" alt="Laminar Flow Logo" class="footer-logo-img">
+                    <p>Engineering precision in every drop. Sustainable water, irrigation, and green energy infrastructure.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="proven-records.html">Proven Records</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Head Office</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Along Buremba Kakoba Road</p>
+                    <p><i class="fa-solid fa-box-archive"></i> P. O. Box 423674, Mbarara City (U)</p>
+                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:larminaflowventures@gmail.com" style="color: #94A3B8;">larminaflowventures@gmail.com</a></p>
+                    <p><i class="fa-solid fa-phone"></i> Call: <a href="tel:+256773071425" style="color: #94A3B8;">+256 773 071 425</a></p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Connect With Us</h4>
+                    <p>Follow our projects & chat instantly:</p>
+                    <div class="footer-social-row">
+                        <a href="https://wa.me/256758619476" target="_blank" aria-label="WhatsApp" class="social-icon-btn whatsapp" title="Chat on WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@laminarflowventures" target="_blank" aria-label="TikTok" class="social-icon-btn tiktok" title="Follow on TikTok">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-" target="_blank" aria-label="GitHub" class="social-icon-btn github" title="GitHub Repository">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> Laminar Flow Ventures Limited. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Spec Modal -->
+    <div class="modal" id="spec-modal" onclick="if(event.target===this) window.closeModal()">
+        <div class="modal-content glass-card">
+            <button type="button" class="modal-close" id="modal-close" onclick="window.closeModal(); return false;" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modal-body">
+                <!-- Content dynamically injected via app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CLIENT & ENGINEER LOGIN / REGISTRATION MODAL -->
+    <div class="modal" id="portal-modal">
+        <div class="modal-content glass-card portal-modal-card">
+            <button type="button" class="modal-close" id="portal-close" onclick="window.closeClientPortal()"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="portal-header">
+                <div class="portal-brand">
+                    <img src="logo.jpg" alt="Laminar Flow Logo" class="portal-logo-img">
+                </div>
+                <h2>Client & Engineer Portal</h2>
+                <p>Data Activation & Active Project Management</p>
+            </div>
+
+            <div class="portal-tabs">
+                <button class="portal-tab active" id="tab-login-btn">Sign In</button>
+                <button class="portal-tab" id="tab-register-btn">Register Account</button>
+            </div>
+
+            <form id="portal-login-form" class="portal-form active">
+                <div class="form-group">
+                    <label for="login-email">Client Email or Client ID *</label>
+                    <input type="email" id="login-email" required placeholder="client@company.com">
+                </div>
+                <div class="form-group">
+                    <label for="login-pass">Password *</label>
+                    <input type="password" id="login-pass" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Action completed successfully.</span>
+    </div>
+
+    <!-- Floating WhatsApp Action Button -->
+    <a href="https://wa.me/256758619476" target="_blank" class="whatsapp-float" title="Chat with Laminar Flow Ventures on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="app.js?v=22.0"></script>
+</body>
+</html>
