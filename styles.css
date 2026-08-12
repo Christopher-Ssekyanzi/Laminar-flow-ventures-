@@ -746,68 +746,88 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 
-/* Buttons */
+/* EXECUTIVE & PROFESSIONAL BUTTON DESIGN SYSTEM */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 12px 24px;
-    border-radius: 50px;
+    gap: 10px;
+    padding: 12px 26px;
+    border-radius: 10px;
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.92rem;
+    letter-spacing: 0.015em;
     cursor: pointer;
-    transition: all var(--transition-smooth);
-    border: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid transparent;
     touch-action: manipulation;
     min-height: 44px;
     white-space: nowrap;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
 }
 
 .btn-primary {
     background: linear-gradient(135deg, var(--lfv-ocean-cyan) 0%, var(--lfv-hydro-blue) 100%);
     color: #FFFFFF;
-    box-shadow: 0 4px 20px rgba(0, 119, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 14px rgba(0, 119, 255, 0.25);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 119, 255, 0.45);
+    box-shadow: 0 8px 24px rgba(0, 119, 255, 0.4);
     background: linear-gradient(135deg, #1A88FF 0%, #0044B3 100%);
+    color: #FFFFFF;
 }
 
 .btn-glass {
-    background: #F1F5F9;
+    background: #FFFFFF;
     border: 1px solid var(--border-subtle);
     color: var(--text-main);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
 .btn-glass:hover {
-    background: #E2E8F0;
+    background: #F8FAFC;
     border-color: var(--primary-cyan);
     color: var(--primary-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
 }
 
 .btn-outline {
-    background: transparent;
-    border: 1px solid var(--primary-cyan);
+    background: #FFFFFF;
+    border: 1.5px solid var(--primary-cyan);
     color: var(--primary-cyan);
+    box-shadow: 0 2px 8px rgba(0, 119, 255, 0.08);
 }
 
 .btn-outline:hover {
-    background: rgba(0, 119, 255, 0.08);
-    box-shadow: 0 0 15px rgba(0, 119, 255, 0.2);
+    background: #E0F2FE;
+    border-color: var(--primary-cyan);
+    color: var(--primary-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 119, 255, 0.2);
 }
 
 .btn-lg {
-    padding: 16px 32px;
-    font-size: 1rem;
+    padding: 14px 32px;
+    font-size: 0.98rem;
+    border-radius: 12px;
 }
 
 .btn-sm {
-    padding: 8px 16px;
-    font-size: 0.85rem;
+    padding: 8px 18px;
+    font-size: 0.84rem;
+    border-radius: 8px;
+    min-height: 38px;
 }
 
 .btn-block {
@@ -817,13 +837,49 @@ h1, h2, h3, h4, h5, h6 {
 .btn-text {
     background: transparent;
     color: var(--primary-cyan);
-    padding: 0;
-    font-size: 0.88rem;
+    padding: 6px 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: all var(--transition-fast);
 }
 
 .btn-text:hover {
+    background: #E0F2FE;
     color: var(--primary-sapphire);
-    transform: translateX(4px);
+    transform: translateX(3px);
+}
+
+/* COMPACT PROVEN RECORDS BANNER */
+.records-banner-section {
+    padding: 50px 0;
+    background: #F8FAFC;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.records-banner-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    flex-wrap: wrap;
+}
+
+.records-banner-content {
+    text-align: left;
+    max-width: 650px;
+}
+
+.records-banner-content h3 {
+    font-size: 1.35rem;
+    color: var(--text-main);
+    margin-top: 4px;
 }
 
 /* Header & Navbar */
