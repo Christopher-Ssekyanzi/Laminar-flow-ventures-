@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try { initProducts(); } catch(e) { console.error(e); }
     try { initForm(); } catch(e) { console.error(e); }
     try { initSimWidget(); } catch(e) { console.error(e); }
+    try { initSlideshow(); } catch(e) { console.error(e); }
     try { updateYear(); } catch(e) { console.error(e); }
 });
 
@@ -374,4 +375,61 @@ function showToast(message) {
 function updateYear() {
     const yr = document.getElementById('year');
     if (yr) yr.textContent = new Date().getFullYear();
+}
+
+/* REAL PROJECT MEDIA SLIDESHOW CAROUSEL */
+function initSlideshow() {
+    const container = document.getElementById('about-slideshow');
+    if (!container) return;
+
+    const slides = container.querySelectorAll('.slideshow-slide');
+    const dots = container.querySelectorAll('.slideshow-dot');
+    const prevBtn = document.getElementById('slideshow-prev');
+    const nextBtn = document.getElementById('slideshow-next');
+
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let autoTimer = null;
+
+    function goToSlide(index) {
+        slides.forEach((s, idx) => {
+            s.classList.toggle('active', idx === index);
+        });
+        dots.forEach((d, idx) => {
+            d.classList.toggle('active', idx === index);
+        });
+        currentIndex = index;
+    }
+
+    function nextSlide() {
+        let nextIdx = (currentIndex + 1) % slides.length;
+        goToSlide(nextIdx);
+    }
+
+    function prevSlide() {
+        let prevIdx = (currentIndex - 1 + slides.length) % slides.length;
+        goToSlide(prevIdx);
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); restartTimer(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); restartTimer(); });
+
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+            goToSlide(idx);
+            restartTimer();
+        });
+    });
+
+    function startTimer() {
+        autoTimer = setInterval(nextSlide, 4500);
+    }
+
+    function restartTimer() {
+        clearInterval(autoTimer);
+        startTimer();
+    }
+
+    startTimer();
 }

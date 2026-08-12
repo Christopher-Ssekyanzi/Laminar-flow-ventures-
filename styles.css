@@ -277,7 +277,89 @@ h1, h2, h3, h4, h5, h6 {
 .social-icon-btn.tiktok:hover { background: #000000; color: #EE1D52; border-color: #69C9D0; transform: translateY(-3px); box-shadow: 0 0 15px rgba(238, 29, 82, 0.5); }
 .social-icon-btn.github:hover { background: #333333; color: #FFFFFF; border-color: #666666; transform: translateY(-3px); }
 
-/* REAL PROJECT IMAGE STYLES */
+/* REAL PROJECT IMAGE & SLIDESHOW CAROUSEL STYLES */
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    height: 380px;
+}
+
+.slideshow-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.slideshow-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.slideshow-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.65);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all var(--transition-fast);
+    touch-action: manipulation;
+}
+
+.slideshow-arrow:hover {
+    background: var(--lfv-ocean-cyan);
+    color: #FFFFFF;
+    border-color: var(--lfv-ocean-cyan);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slideshow-arrow.prev { left: 14px; }
+.slideshow-arrow.next { right: 14px; }
+
+.slideshow-dots {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+}
+
+.slideshow-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(15, 23, 42, 0.3);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.slideshow-dot.active, .slideshow-dot:hover {
+    background: var(--lfv-ocean-cyan);
+    width: 26px;
+    border-radius: 10px;
+    border-color: var(--lfv-ocean-cyan);
+}
+
 .about-real-img {
     width: 100%;
     height: 380px;

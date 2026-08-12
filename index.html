@@ -159,10 +159,41 @@
         <div class="container">
             <div class="grid grid-2">
                 <div class="about-image-wrapper">
-                    <div class="glass-card image-card">
-                        <img src="project_manifold_installation.jpg" alt="Laminar Flow Engineer Inspecting Hydraulic Manifold" class="about-real-img">
-                        <div class="about-img-caption">
-                            <span><i class="fa-solid fa-user-check"></i> On-Site Engineering: Control Room & Valve Manifold Installation</span>
+                    <!-- Project Real Image Slideshow Carousel -->
+                    <div class="glass-card image-card slideshow-container" id="about-slideshow">
+                        <!-- Slide 1: High-Volume Borehole Yield Discharge Testing (NEW IMAGE) -->
+                        <div class="slideshow-slide active">
+                            <img src="project_discharge_yield_testing.jpg" alt="High-Volume Borehole Yield & Flow Rate Discharge Testing" class="about-real-img">
+                            <div class="about-img-caption">
+                                <span><i class="fa-solid fa-droplet"></i> Field Testing: High-Volume Borehole Yield & Flow Rate Discharge</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Pump Station Manifold Installation -->
+                        <div class="slideshow-slide">
+                            <img src="project_manifold_installation.jpg" alt="Control Room & Valve Manifold Installation" class="about-real-img">
+                            <div class="about-img-caption">
+                                <span><i class="fa-solid fa-gears"></i> On-Site Engineering: Control Room & Valve Manifold Assembly</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Turnkey Borehole Headworks -->
+                        <div class="slideshow-slide">
+                            <img src="project_borehole_headworks.jpg" alt="Turnkey Borehole Headworks & Civil Infrastructure" class="about-real-img">
+                            <div class="about-img-caption">
+                                <span><i class="fa-solid fa-building-user"></i> Civil Works: Borehole Headworks & Perimeter Fencing</span>
+                            </div>
+                        </div>
+
+                        <!-- Slideshow Navigation Controls -->
+                        <button class="slideshow-arrow prev" id="slideshow-prev" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slideshow-arrow next" id="slideshow-next" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                        
+                        <!-- Slideshow Dots -->
+                        <div class="slideshow-dots">
+                            <span class="slideshow-dot active" data-index="0"></span>
+                            <span class="slideshow-dot" data-index="1"></span>
+                            <span class="slideshow-dot" data-index="2"></span>
                         </div>
                     </div>
                     <div class="floating-badge">
@@ -401,18 +432,18 @@
                     </div>
                 </div>
 
-                <!-- Item 3 -->
-                <div class="glass-card portfolio-card" data-category="sales">
+                <!-- Item 3: Real Field Discharge Testing Photo -->
+                <div class="glass-card portfolio-card real-project" data-category="works">
                     <div class="portfolio-thumb">
-                        <div class="thumb-graphic pump-rig"></div>
-                        <span class="category-tag">Sales</span>
+                        <img src="project_discharge_yield_testing.jpg" alt="High-Volume Borehole Yield & Flow Rate Discharge Testing" class="portfolio-real-img">
+                        <span class="category-tag">Field Testing</span>
                     </div>
                     <div class="portfolio-body">
-                        <h3>Industrial Pump Matrix Supply</h3>
-                        <p>Delivery and installation of 12 duplex stainless steel high-pressure booster pumps.</p>
+                        <h3>Borehole Yield & Flow Rate Discharge Testing</h3>
+                        <p>High-volume pumping drawdown test, discharge flow rate measurement, and water quality sampling prior to grid integration.</p>
                         <div class="portfolio-meta">
-                            <span><i class="fa-solid fa-truck"></i> Turnkey Supply</span>
-                            <span><i class="fa-solid fa-shield"></i> 5-Yr Warranty</span>
+                            <span><i class="fa-solid fa-droplet"></i> High Yield Flow</span>
+                            <span><i class="fa-solid fa-flask"></i> Quality Tested</span>
                         </div>
                     </div>
                 </div>
@@ -821,7 +852,7 @@
     </a>
 
     <!-- Scripts -->
-    <script src="laminar_simulation.js?v=17.0"></script>
-    <script src="app.js?v=17.0"></script>
+    <script src="laminar_simulation.js?v=18.0"></script>
+    <script src="app.js?v=18.0"></script>
 </body>
 </html>
