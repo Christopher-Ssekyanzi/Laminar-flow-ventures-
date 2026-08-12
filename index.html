@@ -609,9 +609,9 @@
     </footer>
 
     <!-- Service Spec Modal -->
-    <div class="modal" id="spec-modal">
+    <div class="modal" id="spec-modal" onclick="if(event.target===this) window.closeModal()">
         <div class="modal-content glass-card">
-            <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            <button type="button" class="modal-close" id="modal-close" onclick="window.closeModal(); return false;" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
             <div id="modal-body">
                 <!-- Content dynamically injected via app.js -->
             </div>
@@ -818,7 +818,7 @@
     </a>
 
     <!-- Scripts -->
-    <script src="laminar_simulation.js?v=20.0"></script>
-    <script src="app.js?v=20.0"></script>
+    <script src="laminar_simulation.js?v=21.0"></script>
+    <script src="app.js?v=21.0"></script>
 </body>
 </html>

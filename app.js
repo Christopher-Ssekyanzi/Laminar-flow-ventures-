@@ -3,6 +3,11 @@
    Client Portal, Data Activation, & Hydraulic Engineering System
    ========================================================================== */
 
+/* Global Unconditional Modal Closer */
+window.closeModal = function() {
+    document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     try { initNavbar(); } catch(e) { console.error(e); }
     try { initPortal(); } catch(e) { console.error(e); }
@@ -239,11 +244,6 @@ function initPortfolio() {
 }
 
 /* Modal Specs System */
-window.closeModal = function() {
-    const modal = document.getElementById('spec-modal');
-    if (modal) modal.classList.remove('active');
-};
-
 function initModal() {
     const modal = document.getElementById('spec-modal');
     const modalClose = document.getElementById('modal-close');
@@ -303,7 +303,7 @@ function initModal() {
                 modalBody.innerHTML = `
                     <h2 class="gradient-text" style="margin-bottom: 16px;">${specData[key].title}</h2>
                     ${specData[key].content}
-                    <button class="btn btn-primary btn-close-modal-action" style="margin-top: 24px; width: 100%;">Close Details</button>
+                    <button type="button" class="btn btn-primary btn-close-modal-action" style="margin-top: 24px; width: 100%;" onclick="window.closeModal(); return false;">Close Details</button>
                 `;
                 modal.classList.add('active');
             }
@@ -317,12 +317,15 @@ function initModal() {
         });
     }
 
-    // Universal Event Delegation for modal close
-    modal.addEventListener('click', (e) => {
+    // Document-level listener for guaranteed modal closing
+    document.addEventListener('click', (e) => {
+        if (!modal.classList.contains('active')) return;
         if (
             e.target === modal || 
+            e.target.id === 'modal-close' || 
             e.target.closest('#modal-close') || 
             e.target.closest('.modal-close') || 
+            e.target.classList.contains('btn-close-modal-action') ||
             e.target.closest('.btn-close-modal-action')
         ) {
             window.closeModal();
