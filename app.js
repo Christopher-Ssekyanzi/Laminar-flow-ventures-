@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try { initForm(); } catch(e) { console.error(e); }
     try { initSimWidget(); } catch(e) { console.error(e); }
     try { initSlideshow(); } catch(e) { console.error(e); }
+    try { initProductSlideshow(); } catch(e) { console.error(e); }
     try { updateYear(); } catch(e) { console.error(e); }
 });
 
@@ -455,4 +456,33 @@ function initSlideshow() {
     }
 
     startTimer();
+}
+
+/* PRODUCT CARD SOLAR SLIDESHOW */
+function initProductSlideshow() {
+    const container = document.getElementById('solar-product-slideshow');
+    if (!container) return;
+
+    const slides = container.querySelectorAll('.product-slide');
+    const dots = container.querySelectorAll('.product-dot');
+    if (!slides.length) return;
+
+    let currentIdx = 0;
+    
+    function showSlide(index) {
+        slides.forEach((s, idx) => s.classList.toggle('active', idx === index));
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === index));
+        currentIdx = index;
+    }
+
+    function nextSlide() {
+        let nextIdx = (currentIdx + 1) % slides.length;
+        showSlide(nextIdx);
+    }
+
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => showSlide(idx));
+    });
+
+    setInterval(nextSlide, 3500);
 }
