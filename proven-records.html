@@ -60,9 +60,7 @@
             </nav>
 
             <div class="nav-actions">
-                <button class="btn btn-outline btn-sm" onclick="window.openClientPortal()">
-                    <i class="fa-solid fa-user-lock"></i> <span id="nav-user-label">Client Portal</span>
-                </button>
+                <a href="index.html#contact" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Get Quote</a>
                 <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -268,40 +266,6 @@
             <div id="modal-body">
                 <!-- Content dynamically injected via app.js -->
             </div>
-        </div>
-    </div>
-
-    <!-- CLIENT & ENGINEER LOGIN / REGISTRATION MODAL -->
-    <div class="modal" id="portal-modal">
-        <div class="modal-content glass-card portal-modal-card">
-            <button type="button" class="modal-close" id="portal-close" onclick="window.closeClientPortal()"><i class="fa-solid fa-xmark"></i></button>
-            
-            <div class="portal-header">
-                <div class="portal-brand">
-                    <img src="logo.jpg" alt="Laminar Flow Logo" class="portal-logo-img">
-                </div>
-                <h2>Client & Engineer Portal</h2>
-                <p>Data Activation & Active Project Management</p>
-            </div>
-
-            <div class="portal-tabs">
-                <button class="portal-tab active" id="tab-login-btn">Sign In</button>
-                <button class="portal-tab" id="tab-register-btn">Register Account</button>
-            </div>
-
-            <form id="portal-login-form" class="portal-form active">
-                <div class="form-group">
-                    <label for="login-email">Client Email or Client ID *</label>
-                    <input type="email" id="login-email" required placeholder="client@company.com">
-                </div>
-                <div class="form-group">
-                    <label for="login-pass">Password *</label>
-                    <input type="password" id="login-pass" required placeholder="••••••••">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">
-                    <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
-                </button>
-            </form>
         </div>
     </div>
 

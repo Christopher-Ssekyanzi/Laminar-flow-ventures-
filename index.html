@@ -55,10 +55,6 @@
             </nav>
 
             <div class="nav-actions">
-                <button class="btn btn-outline" id="portal-login-btn" onclick="window.openClientPortal()">
-                    <i class="fa-solid fa-user-lock"></i>
-                    <span id="nav-user-label">Client Portal</span>
-                </button>
                 <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Get Quote</a>
                 <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
                     <i class="fa-solid fa-bars"></i>
@@ -97,10 +93,10 @@
                     <span>Explore Engineering Works</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
-                <button class="btn btn-glass btn-lg" id="hero-portal-trigger" onclick="window.openClientPortal()">
-                    <i class="fa-solid fa-user-check"></i>
-                    <span>Access Client Portal</span>
-                </button>
+                <a href="#contact" class="btn btn-glass btn-lg">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Request a Quote</span>
+                </a>
             </div>
 
             <!-- Slideshow Dot Navigation -->
@@ -533,193 +529,6 @@
             <button type="button" class="modal-close" id="modal-close" onclick="window.closeModal(); return false;" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
             <div id="modal-body">
                 <!-- Content dynamically injected via app.js -->
-            </div>
-        </div>
-    </div>
-
-    <!-- CLIENT & ENGINEER LOGIN / REGISTRATION MODAL -->
-    <div class="modal" id="portal-modal">
-        <div class="modal-content glass-card portal-modal-card">
-            <button class="modal-close" id="portal-close"><i class="fa-solid fa-xmark"></i></button>
-            
-            <div class="portal-header">
-                <div class="portal-brand">
-                    <img src="logo.jpg" alt="Laminar Flow Logo" class="portal-logo-img">
-                </div>
-                <h2>Client & Engineer Portal</h2>
-                <p>Data Activation & Active Project Management</p>
-            </div>
-
-            <!-- Tab Switcher -->
-            <div class="portal-tabs">
-                <button class="portal-tab active" id="tab-login-btn">Sign In</button>
-                <button class="portal-tab" id="tab-register-btn">Register Account</button>
-            </div>
-
-            <!-- LOGIN FORM -->
-            <form id="portal-login-form" class="portal-form active">
-                <div class="form-group">
-                    <label for="login-email">Client Email or Client ID *</label>
-                    <input type="email" id="login-email" required placeholder="client@company.com">
-                </div>
-                <div class="form-group">
-                    <label for="login-pass">Password *</label>
-                    <input type="password" id="login-pass" required placeholder="••••••••">
-                </div>
-                <div class="portal-options">
-                    <label class="checkbox-label">
-                        <input type="checkbox" checked> Remember Me
-                    </label>
-                    <a href="#" class="forgot-link">Forgot Password?</a>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">
-                    <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
-                </button>
-                
-                <div class="portal-divider"><span>OR QUICK TESTING</span></div>
-                
-                <div class="demo-login-actions">
-                    <button type="button" class="btn btn-glass btn-sm btn-block" id="demo-client-btn">
-                        <i class="fa-solid fa-user"></i> Demo Access: Client Portal
-                    </button>
-                    <button type="button" class="btn btn-glass btn-sm btn-block" id="demo-engineer-btn">
-                        <i class="fa-solid fa-helmet-safety"></i> Demo Access: Engineer Portal
-                    </button>
-                </div>
-            </form>
-
-            <!-- REGISTER FORM -->
-            <form id="portal-register-form" class="portal-form">
-                <div class="form-group">
-                    <label for="reg-name">Full Name *</label>
-                    <input type="text" id="reg-name" required placeholder="e.g. Eng. Christopher Ssekyanzi">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="reg-company">Company / Client Name *</label>
-                        <input type="text" id="reg-company" required placeholder="e.g. Municipal Water Board">
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-type">Account Type</label>
-                        <select id="reg-type">
-                            <option value="client">Project Client / Estate</option>
-                            <option value="agricultural">Irrigation & Agricultural</option>
-                            <option value="municipal">Municipal / Industrial</option>
-                            <option value="engineer">Certified Field Engineer</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="reg-email">Email Address *</label>
-                        <input type="email" id="reg-email" required placeholder="name@domain.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-phone">Phone Number *</label>
-                        <input type="tel" id="reg-phone" required placeholder="+ ...">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="reg-pass">Create Account Password *</label>
-                    <input type="password" id="reg-pass" required placeholder="Minimum 8 characters">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">
-                    <i class="fa-solid fa-user-plus"></i> Activate Account & Data
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- CLIENT DASHBOARD DRAWER / MODAL -->
-    <div class="modal" id="dashboard-modal">
-        <div class="modal-content glass-card dashboard-modal-card">
-            <button class="modal-close" id="dash-close"><i class="fa-solid fa-xmark"></i></button>
-            
-            <div class="dash-header">
-                <div class="dash-user-info">
-                    <div class="dash-avatar"><i class="fa-solid fa-user-gear"></i></div>
-                    <div>
-                        <h2 id="dash-user-name">Eng. Christopher Ssekyanzi</h2>
-                        <span class="dash-badge" id="dash-user-role">CLIENT ACCOUNT // ID: LFV-88402</span>
-                    </div>
-                </div>
-                <button class="btn btn-outline btn-sm" id="dash-logout-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</button>
-            </div>
-
-            <div class="dash-body">
-                <!-- ACTIVE PROJECTS CARD -->
-                <div class="dash-card">
-                    <div class="dash-card-header">
-                        <h4><i class="fa-solid fa-diagram-project"></i> Active Water Engineering Works</h4>
-                        <span class="status-pill laminar">75% Completed</span>
-                    </div>
-                    <div class="dash-card-body">
-                        <h3>Turnkey Borehole Headworks & Valve Manifold Installation</h3>
-                        <p class="dash-subtext">Location: [Active Field Site] | Lead Engineer: Laminar Hydraulic Team</p>
-                        
-                        <div class="progress-bar-wrapper">
-                            <div class="progress-bar-fill" style="width: 75%;"></div>
-                        </div>
-                        <div class="progress-labels">
-                            <span>Phase 1: Civil Concrete</span>
-                            <span>Phase 2: Pipework</span>
-                            <strong>Phase 3: Pressure Test (Active)</strong>
-                            <span>Phase 4: Handover</span>
-                        </div>
-
-                        <div class="dash-action-row">
-                            <button class="btn btn-glass btn-sm" onclick="showToast('Downloading CAD Blueprint PDF...')">
-                                <i class="fa-solid fa-file-pdf"></i> Download CAD Blueprint (PDF)
-                            </button>
-                            <button class="btn btn-glass btn-sm" onclick="showToast('Fetching live flow telemetry stream...')">
-                                <i class="fa-solid fa-chart-line"></i> View Live Flow Telemetry
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EQUIPMENT & WARRANTY LOCKER -->
-                <div class="dash-card">
-                    <div class="dash-card-header">
-                        <h4><i class="fa-solid fa-boxes-stacked"></i> Equipment Warranty & Serial Locker</h4>
-                        <span>2 Active Items</span>
-                    </div>
-                    <div class="dash-card-body">
-                        <div class="dash-equipment-list">
-                            <div class="equipment-row">
-                                <div>
-                                    <strong>High-Pressure Centrifugal Booster Pump</strong>
-                                    <span>Serial #LFV-8842-PUMP | Warranty: Active (Valid thru 2031)</span>
-                                </div>
-                                <span class="status-pill laminar">Inspected</span>
-                            </div>
-                            <div class="equipment-row">
-                                <div>
-                                    <strong>Automated Pressure Control Valve Set</strong>
-                                    <span>Serial #LFV-9921-VALVE | Warranty: Active (Valid thru 2028)</span>
-                                </div>
-                                <span class="status-pill laminar">Calibrated</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RECENT QUOTES & INVOICES -->
-                <div class="dash-card">
-                    <div class="dash-card-header">
-                        <h4><i class="fa-solid fa-receipt"></i> Quotes & Invoices</h4>
-                        <span>QT-2026-081</span>
-                    </div>
-                    <div class="dash-card-body">
-                        <div class="equipment-row">
-                            <div>
-                                <strong>Engineering Works Estimate #QT-2026-081</strong>
-                                <span>Hydraulic Pipe Sizing & Flanged Manifold Assembly</span>
-                            </div>
-                            <span class="status-pill laminar">Approved & Activated</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

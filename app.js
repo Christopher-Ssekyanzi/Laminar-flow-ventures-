@@ -1,6 +1,6 @@
 /* ==========================================================================
    Laminar Flow Ventures Limited - Master Interactive Application Logic
-   Client Portal, Data Activation, & Hydraulic Engineering System
+   Hydraulic Engineering System, Calculators, & Media Showcase
    ========================================================================== */
 
 /* Global Unconditional Modal Closer */
@@ -10,7 +10,6 @@ window.closeModal = function() {
 
 document.addEventListener('DOMContentLoaded', () => {
     try { initNavbar(); } catch(e) { console.error(e); }
-    try { initPortal(); } catch(e) { console.error(e); }
     try { initPortfolio(); } catch(e) { console.error(e); }
     try { initModal(); } catch(e) { console.error(e); }
     try { initProducts(); } catch(e) { console.error(e); }
@@ -50,159 +49,6 @@ function initNavbar() {
             link.classList.add('active');
         });
     });
-}
-
-/* CLIENT & ENGINEER PORTAL AUTHENTICATION & DATA ACTIVATION */
-function initPortal() {
-    const portalModal = document.getElementById('portal-modal');
-    const dashboardModal = document.getElementById('dashboard-modal');
-    
-    const portalBtn = document.getElementById('portal-login-btn');
-    const heroPortalBtn = document.getElementById('hero-portal-trigger');
-    const portalClose = document.getElementById('portal-close');
-    const dashClose = document.getElementById('dash-close');
-    const dashLogoutBtn = document.getElementById('dash-logout-btn');
-
-    const tabLoginBtn = document.getElementById('tab-login-btn');
-    const tabRegisterBtn = document.getElementById('tab-register-btn');
-    const loginForm = document.getElementById('portal-login-form');
-    const registerForm = document.getElementById('portal-register-form');
-
-    const demoClientBtn = document.getElementById('demo-client-btn');
-    const demoEngineerBtn = document.getElementById('demo-engineer-btn');
-
-    const navUserLabel = document.getElementById('nav-user-label');
-    const dashUserName = document.getElementById('dash-user-name');
-    const dashUserRole = document.getElementById('dash-user-role');
-
-    let currentUser = null;
-
-    // EXPOSE GLOBAL METHOD FOR INSTANT HTML CLICK INVOCATION
-    window.openClientPortal = function() {
-        if (currentUser) {
-            openDashboard();
-        } else {
-            if (portalModal) portalModal.classList.add('active');
-        }
-    };
-
-    window.closeClientPortal = function() {
-        if (portalModal) portalModal.classList.remove('active');
-    };
-
-    window.openDashboard = function() {
-        window.closeClientPortal();
-        if (dashboardModal) dashboardModal.classList.add('active');
-    };
-
-    window.closeDashboard = function() {
-        if (dashboardModal) dashboardModal.classList.remove('active');
-    };
-
-    if (portalBtn) portalBtn.addEventListener('click', window.openClientPortal);
-    if (heroPortalBtn) heroPortalBtn.addEventListener('click', window.openClientPortal);
-    if (portalClose) portalClose.addEventListener('click', window.closeClientPortal);
-    if (dashClose) dashClose.addEventListener('click', window.closeDashboard);
-
-    if (portalModal) {
-        portalModal.addEventListener('click', (e) => {
-            if (e.target === portalModal) window.closeClientPortal();
-        });
-    }
-
-    if (dashboardModal) {
-        dashboardModal.addEventListener('click', (e) => {
-            if (e.target === dashboardModal) window.closeDashboard();
-        });
-    }
-
-    // Tab Switching
-    if (tabLoginBtn && tabRegisterBtn) {
-        tabLoginBtn.addEventListener('click', () => {
-            tabLoginBtn.classList.add('active');
-            tabRegisterBtn.classList.remove('active');
-            if (loginForm) loginForm.classList.add('active');
-            if (registerForm) registerForm.classList.remove('active');
-        });
-
-        tabRegisterBtn.addEventListener('click', () => {
-            tabRegisterBtn.classList.add('active');
-            tabLoginBtn.classList.remove('active');
-            if (registerForm) registerForm.classList.add('active');
-            if (loginForm) loginForm.classList.remove('active');
-        });
-    }
-
-    // Login Form Submit
-    if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const emailInput = document.getElementById('login-email');
-            const email = emailInput ? emailInput.value : 'client@company.com';
-            authenticateUser({
-                name: email.split('@')[0].toUpperCase(),
-                role: 'PROJECT CLIENT // ID: LFV-88402',
-                email: email
-            });
-        });
-    }
-
-    // Registration Submit
-    if (registerForm) {
-        registerForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('reg-name') ? document.getElementById('reg-name').value : 'New Client';
-            const company = document.getElementById('reg-company') ? document.getElementById('reg-company').value : 'Client Estate';
-            const type = document.getElementById('reg-type') ? document.getElementById('reg-type').value : 'client';
-
-            showToast(`Account Created for ${company}! Data Activated.`);
-            authenticateUser({
-                name: name,
-                role: `${type.toUpperCase()} ACCOUNT // ID: LFV-${Math.floor(10000 + Math.random() * 90000)}`,
-                company: company
-            });
-        });
-    }
-
-    // Demo Accounts for Quick Access
-    if (demoClientBtn) {
-        demoClientBtn.addEventListener('click', () => {
-            authenticateUser({
-                name: 'Eng. Christopher Ssekyanzi',
-                role: 'CLIENT ACCOUNT // ID: LFV-88402',
-                company: 'Laminar Flow Client Estate'
-            });
-        });
-    }
-
-    if (demoEngineerBtn) {
-        demoEngineerBtn.addEventListener('click', () => {
-            authenticateUser({
-                name: 'Eng. Christopher (Certified Lead)',
-                role: 'FIELD HYDRAULIC ENGINEER // ID: ENG-99201',
-                company: 'Laminar Flow Engineering Team'
-            });
-        });
-    }
-
-    function authenticateUser(userObj) {
-        currentUser = userObj;
-        if (dashUserName) dashUserName.textContent = currentUser.name;
-        if (dashUserRole) dashUserRole.textContent = currentUser.role;
-        if (navUserLabel) navUserLabel.textContent = 'My Dashboard';
-
-        showToast(`Welcome back, ${currentUser.name}!`);
-        window.openDashboard();
-    }
-
-    if (dashLogoutBtn) {
-        dashLogoutBtn.addEventListener('click', () => {
-            currentUser = null;
-            if (navUserLabel) navUserLabel.textContent = 'Client Portal';
-            window.closeDashboard();
-            showToast('Signed out successfully.');
-        });
-    }
 }
 
 /* Equipment Product Inquiry Binding */
