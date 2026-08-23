@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try { initProducts(); } catch(e) { console.error(e); }
     try { initForm(); } catch(e) { console.error(e); }
     try { initSimWidget(); } catch(e) { console.error(e); }
+    try { initHeroSlideshow(); } catch(e) { console.error(e); }
     try { initSlideshow(); } catch(e) { console.error(e); }
     try { initProductSlideshow(); } catch(e) { console.error(e); }
     try { updateYear(); } catch(e) { console.error(e); }
@@ -486,3 +487,44 @@ function initProductSlideshow() {
 
     setInterval(nextSlide, 3500);
 }
+
+/* HERO BACKGROUND SLIDESHOW */
+function initHeroSlideshow() {
+    const slideshow = document.getElementById('hero-slideshow');
+    const dotsContainer = document.getElementById('hero-slide-dots');
+    if (!slideshow) return;
+
+    const slides = slideshow.querySelectorAll('.hero-slide');
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.hero-dot') : [];
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let timer = null;
+
+    function showSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, idx) => {
+            slide.classList.toggle('active', idx === currentIndex);
+        });
+        dots.forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === currentIndex);
+        });
+    }
+
+    function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+            showSlide(currentIndex + 1);
+        }, 5500);
+    }
+
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+            showSlide(idx);
+            startTimer();
+        });
+    });
+
+    startTimer();
+}
+

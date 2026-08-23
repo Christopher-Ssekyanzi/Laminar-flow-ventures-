@@ -124,12 +124,12 @@ class LaminarSimulation {
         const resolution = 35;
         this.streamlines.forEach((line) => {
             this.ctx.beginPath();
-            this.ctx.lineWidth = 0.4; // Very fine hairline stroke
+            this.ctx.lineWidth = 0.8;
             
             const gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-            gradient.addColorStop(0, 'rgba(0, 119, 255, 0.001)');
-            gradient.addColorStop(0.5, 'rgba(0, 119, 255, 0.02)'); // Barely visible light blue trace
-            gradient.addColorStop(1, 'rgba(0, 184, 217, 0.001)');
+            gradient.addColorStop(0, 'rgba(0, 195, 255, 0.05)');
+            gradient.addColorStop(0.5, 'rgba(0, 242, 254, 0.35)');
+            gradient.addColorStop(1, 'rgba(0, 119, 255, 0.05)');
             this.ctx.strokeStyle = gradient;
 
             let currY = line.baseY;
@@ -158,14 +158,13 @@ class LaminarSimulation {
             if (p.y < 0) p.y = this.height;
             if (p.y > this.height) p.y = 0;
 
-            // Ultra-light pastel sky blue that blends smoothly into white background
-            this.ctx.fillStyle = `hsla(${p.hue}, 45%, 88%, ${p.alpha})`;
+            this.ctx.fillStyle = `hsla(${p.hue}, 90%, 65%, ${p.alpha * 2.5 + 0.15})`;
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             this.ctx.fill();
 
-            this.ctx.strokeStyle = `hsla(${p.hue}, 45%, 92%, ${p.alpha * 0.5})`;
-            this.ctx.lineWidth = p.size * 0.5;
+            this.ctx.strokeStyle = `hsla(${p.hue}, 95%, 75%, ${p.alpha * 1.5 + 0.1})`;
+            this.ctx.lineWidth = p.size * 0.6;
             this.ctx.beginPath();
             this.ctx.moveTo(p.x, p.y);
             this.ctx.lineTo(p.x - vel.vx * 2, p.y - vel.vy * 2);
@@ -177,9 +176,8 @@ class LaminarSimulation {
         this.time += 0.01;
         this.updateMouse();
 
-        // Clear Canvas almost completely to pure white (85% white fade)
-        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-        this.ctx.fillRect(0, 0, this.width, this.height);
+        // Clear Canvas transparently so background image slideshow shines through
+        this.ctx.clearRect(0, 0, this.width, this.height);
 
         this.drawStreamlines();
         this.drawParticles();
