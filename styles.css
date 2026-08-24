@@ -776,17 +776,6 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
 }
 
-#laminar-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    opacity: 0.75;
-    mix-blend-mode: screen;
-}
-
 .hero-content {
     position: relative;
     z-index: 4;
@@ -896,61 +885,6 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--lfv-ocean-cyan);
     border-color: var(--lfv-ocean-cyan);
     box-shadow: 0 0 12px var(--lfv-ocean-cyan);
-}
-
-/* Simulation Controls Widget */
-.sim-controls-widget {
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    z-index: 10;
-    padding: 16px;
-    width: 280px;
-    font-size: 0.85rem;
-    background: #FFFFFF;
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.sim-widget-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    color: var(--primary-cyan);
-    font-weight: 600;
-}
-
-.sim-widget-header button {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    cursor: pointer;
-}
-
-.sim-widget-header button:hover {
-    color: var(--primary-cyan);
-}
-
-.sim-control-group {
-    margin-bottom: 10px;
-}
-
-.sim-control-group label {
-    display: block;
-    margin-bottom: 4px;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-}
-
-.sim-control-group select, .sim-control-group input[type="range"] {
-    width: 100%;
-    background: #F8FAFC;
-    border: 1px solid var(--border-subtle);
-    color: var(--text-main);
-    padding: 6px;
-    border-radius: var(--radius-sm);
-    outline: none;
 }
 
 /* TRUST BAR SECTION */
@@ -1701,7 +1635,6 @@ h1, h2, h3, h4, h5, h6 {
     .mobile-toggle { display: block; }
     .nav-actions .btn { display: none; }
     .trust-grid { grid-template-columns: 1fr; }
-    .sim-controls-widget { display: none; }
     .form-row { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
     .whatsapp-float { bottom: 18px; right: 18px; width: 50px; height: 50px; font-size: 1.6rem; }

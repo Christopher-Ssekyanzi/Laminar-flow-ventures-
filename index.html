@@ -74,7 +74,6 @@
             <div class="hero-slide" style="background-image: url('product_industrial_pump.jpg');" title="Industrial Fluid Pumping Systems"></div>
         </div>
 
-        <canvas id="laminar-canvas"></canvas>
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
@@ -106,28 +105,6 @@
                 <button class="hero-dot" data-index="2" aria-label="Slide 3"></button>
                 <button class="hero-dot" data-index="3" aria-label="Slide 4"></button>
                 <button class="hero-dot" data-index="4" aria-label="Slide 5"></button>
-            </div>
-        </div>
-
-        <!-- Canvas Streamline Simulation Controls Widget -->
-        <div class="sim-controls-widget glass-panel">
-            <div class="sim-widget-header">
-                <span><i class="fa-solid fa-wave-square"></i> Fluid Streamline Controls</span>
-                <button id="sim-reset-btn" title="Reset Simulation"><i class="fa-solid fa-rotate-right"></i></button>
-            </div>
-            <div class="sim-widget-body">
-                <div class="sim-control-group">
-                    <label for="flow-mode">Flow Regime:</label>
-                    <select id="flow-mode">
-                        <option value="laminar" selected>Laminar (Smooth Streamlines)</option>
-                        <option value="vortex">Vortex Core Simulation</option>
-                        <option value="turbulent">Turbulent Flow</option>
-                    </select>
-                </div>
-                <div class="sim-control-group">
-                    <label for="particle-speed">Stream Velocity:</label>
-                    <input type="range" id="particle-speed" min="1" max="10" value="4">
-                </div>
             </div>
         </div>
     </section>
@@ -546,7 +523,6 @@
     </a>
 
     <!-- Scripts -->
-    <script src="laminar_simulation.js?v=25.0"></script>
-    <script src="app.js?v=25.0"></script>
+    <script src="app.js?v=26.0"></script>
 </body>
 </html>

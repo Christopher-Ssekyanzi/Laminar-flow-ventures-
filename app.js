@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     try { initModal(); } catch(e) { console.error(e); }
     try { initProducts(); } catch(e) { console.error(e); }
     try { initForm(); } catch(e) { console.error(e); }
-    try { initSimWidget(); } catch(e) { console.error(e); }
     try { initHeroSlideshow(); } catch(e) { console.error(e); }
     try { initSlideshow(); } catch(e) { console.error(e); }
     try { initProductSlideshow(); } catch(e) { console.error(e); }
@@ -186,37 +185,6 @@ function initModal() {
             window.closeModal();
         }
     });
-}
-
-/* Simulation Controls Binding */
-function initSimWidget() {
-    const flowMode = document.getElementById('flow-mode');
-    const particleSpeed = document.getElementById('particle-speed');
-    const resetBtn = document.getElementById('sim-reset-btn');
-
-    if (flowMode) {
-        flowMode.addEventListener('change', (e) => {
-            if (window.laminarSim) window.laminarSim.setMode(e.target.value);
-        });
-    }
-
-    if (particleSpeed) {
-        particleSpeed.addEventListener('input', (e) => {
-            if (window.laminarSim) window.laminarSim.setSpeed(e.target.value);
-        });
-    }
-
-    if (resetBtn) {
-        resetBtn.addEventListener('click', () => {
-            if (window.laminarSim) {
-                window.laminarSim.setMode('laminar');
-                window.laminarSim.setSpeed(3.5);
-                if (flowMode) flowMode.value = 'laminar';
-                if (particleSpeed) particleSpeed.value = 4;
-                showToast('Canvas simulation reset to baseline Laminar flow.');
-            }
-        });
-    }
 }
 
 /* Form Submission & Toast Feedback */

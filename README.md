@@ -12,10 +12,9 @@ Welcome to the official web repository for **Laminar Flow Ventures**, a premier 
 
 ## 🌟 Key Features & Architecture
 
-1. **Interactive Canvas Fluid Simulation (`laminar_simulation.js`)**:
-   - Real-time 60fps mathematical model of non-turbulent fluid streamlines (Poiseuille potential flow).
-   - Interactive mouse force-field deflection demonstrating laminar vs. vortex vs. turbulent flow regimes.
-   - On-screen controls to adjust stream velocity and flow regimes dynamically.
+1. **Dynamic High-Resolution Engineering Media Showcase**:
+   - High-contrast photographic background slideshow cycling through active field installations, manifold pipework, borehole infrastructure, and solar pump systems.
+   - Smooth Ken Burns zoom transitions and dot controls for seamless presentation.
 
 2. **Hydraulic & Pipe Sizing Calculator (`app.js`)**:
    - Real-time calculation of fluid velocity \(V\), Reynolds number \(Re\), and friction head loss \(h_f\).
