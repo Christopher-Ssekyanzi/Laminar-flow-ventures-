@@ -997,6 +997,93 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-muted);
 }
 
+/* TURNKEY PROJECT STORYLINE STYLES */
+.project-story-section {
+    background: #F8FAFC;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 70px 0;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 36px;
+}
+
+.story-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09);
+}
+
+.story-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #0B132B;
+}
+
+.story-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+}
+
+.story-card:hover .story-img-wrapper img {
+    transform: scale(1.06);
+}
+
+.story-step-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(11, 19, 43, 0.85);
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.5px;
+}
+
+.story-content {
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.story-content h3 {
+    font-size: 1.02rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.story-content p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin: 0;
+}
+
 /* Services Cards */
 .service-card {
     padding: 28px 22px;
@@ -1639,14 +1726,21 @@ h1, h2, h3, h4, h5, h6 {
     .mobile-toggle { display: block; }
     .nav-actions .btn { display: none; }
     .trust-grid { grid-template-columns: 1fr; }
+    .story-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
     .whatsapp-float { bottom: 18px; right: 18px; width: 50px; height: 50px; font-size: 1.6rem; }
     .badge-pill { font-size: 0.72rem; padding: 6px 12px; }
 }
 
+@media (max-width: 992px) {
+    .story-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 480px) {
     .container { padding: 0 16px; }
+    .story-grid { grid-template-columns: 1fr; }
+    .story-img-wrapper { height: 180px; }
     .header-logo-img { height: 44px; max-height: 46px; padding: 2px 4px; }
     .brand-title-main { font-size: 0.95rem; }
     .brand-title-sub { font-size: 0.58rem; }
