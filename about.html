@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Laminar Flow Ventures Limited</title>
+    <meta name="description" content="Laminar Flow Ventures Limited is a certified water engineering, solar pumping, and hydraulic infrastructure firm operating across Uganda and East Africa.">
+    <link rel="stylesheet" href="styles.css?v=27.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-info">
+                <span><i class="fa-solid fa-location-dot"></i> Along Buremba Kakoba Road, Mbarara City (U)</span>
+                <span><i class="fa-solid fa-envelope"></i> larminaflowventures@gmail.com</span>
+                <span><i class="fa-solid fa-phone"></i> +256 773 071 425</span>
+            </div>
+            <div class="top-socials">
+                <a href="https://wa.me/256758619476" target="_blank" class="top-social-link" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.tiktok.com/@laminarflowventures" target="_blank" class="top-social-link" title="Follow on TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-" target="_blank" class="top-social-link" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="main-header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo-wrapper">
+                <img src="logo.png" alt="Laminar Flow Ventures Limited Logo" class="header-logo-img">
+                <div class="brand-text-block">
+                    <span class="brand-title-main">LAMINAR FLOW</span>
+                    <span class="brand-title-sub">VENTURES LIMITED</span>
+                </div>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="equipment.html" class="nav-link">Equipment Sales</a>
+                <a href="proven-records.html" class="nav-link">Proven Records</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Get Quote</a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO BANNER -->
+    <section class="page-banner text-center">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <span>About Us</span>
+            </div>
+            <div class="section-tag">WHO WE ARE</div>
+            <h1 class="section-title">Engineering Precision in Water & Energy</h1>
+            <p class="section-subtitle">
+                Delivering sustainable water infrastructure, deep borehole drilling, hydraulic design, and clean energy solutions across Uganda and East Africa.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN ABOUT CONTENT SECTION -->
+    <section class="subpage-section">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center; gap: 40px; margin-bottom: 60px;">
+                <div class="about-image-wrapper">
+                    <!-- Project Real Image Slideshow Carousel -->
+                    <div class="glass-card image-card slideshow-container" id="about-slideshow">
+                        <!-- Slide 1 -->
+                        <div class="slideshow-slide active">
+                            <img src="story_borehole_water_strike.jpg" alt="Deep Borehole Drilling & Aquifer Water Strike" class="about-real-img">
+                            <div class="about-img-caption">
+                                <span><i class="fa-solid fa-droplet"></i> Deep Drilling: Aquifer Water Strike & Yield Testing</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="slideshow-slide">
+                            <img src="story_borehole_casing_installation.jpg" alt="Borehole uPVC Hydro-Casing Installation" class="about-real-img">
+                            <div class="about-img-caption">
+                                <span><i class="fa-solid fa-layer-group"></i> Well Completion: Slotted uPVC Hydro-Casing</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="slideshow-slide">
+                            <img src="story_tower_structural_erection.jpg" alt="Structural Steel Water Tank Tower Erection" class="about-real-img">
+                            <div class="about-img-caption">
+                                <span><i class="fa-solid fa-screwdriver-wrench"></i> Structural Works: Steel Tank Tower Fabrication</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="slideshow-slide">
+                            <img src="story_tower_completed_elevated_storage.jpg" alt="Completed Elevated Water Tank Tower Storage" class="about-real-img">
+                            <div class="about-img-caption">
+                                <span><i class="fa-solid fa-faucet-drip"></i> Gravity Storage: 10,000L Elevated Reservoir Tower</span>
+                            </div>
+                        </div>
+
+                        <!-- Navigation -->
+                        <button class="slideshow-arrow prev" id="slideshow-prev" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slideshow-arrow next" id="slideshow-next" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                        
+                        <div class="slideshow-dots">
+                            <span class="slideshow-dot active" data-index="0"></span>
+                            <span class="slideshow-dot" data-index="1"></span>
+                            <span class="slideshow-dot" data-index="2"></span>
+                            <span class="slideshow-dot" data-index="3"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text-column">
+                    <div class="section-tag">OUR MISSION & VISION</div>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 14px;">Water to Every Point</h2>
+                    <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 16px;">
+                        <strong>Laminar Flow Ventures Limited</strong> is an indigenous engineering firm established to bridge the gap in sustainable water supply and precision fluid infrastructure in East Africa.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 20px;">
+                        From remote agricultural irrigation to municipal pump stations, our multidisciplinary team combines hydrogeological exploration, CFD modeling, and structural steel fabrication to deliver turnkey water systems built to last decades.
+                    </p>
+                    <div class="grid grid-2" style="gap: 16px;">
+                        <div class="content-card" style="padding: 16px 20px;">
+                            <h4 style="color: var(--lfv-ocean-cyan); margin-bottom: 4px;"><i class="fa-solid fa-bullseye"></i> Our Mission</h4>
+                            <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Provide reliable, cost-effective water engineering and solar solutions that uplift communities and power agriculture.</p>
+                        </div>
+                        <div class="content-card" style="padding: 16px 20px;">
+                            <h4 style="color: var(--lfv-eco-green); margin-bottom: 4px;"><i class="fa-solid fa-eye"></i> Our Vision</h4>
+                            <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">To be East Africa’s premier partner for precision fluid dynamics, heavy water construction, and clean energy pumping.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CORE VALUES GRID -->
+            <div class="section-header text-center" style="margin-bottom: 36px;">
+                <div class="section-tag">OUR VALUES</div>
+                <h2 class="section-title">The Principles Driving Our Engineering</h2>
+            </div>
+
+            <div class="grid grid-4" style="gap: 20px;">
+                <div class="content-card text-center">
+                    <div class="feature-icon cyan" style="margin: 0 auto 14px;"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Engineering Precision</h3>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); margin: 0;">Applying rigorous fluid mechanics and mathematical modeling to eliminate losses and ensure optimal performance.</p>
+                </div>
+                <div class="content-card text-center">
+                    <div class="feature-icon emerald" style="margin: 0 auto 14px;"><i class="fa-solid fa-leaf"></i></div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Sustainability</h3>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); margin: 0;">Harnessing solar power and zero-carbon pumping to preserve water aquifers and protect the environment.</p>
+                </div>
+                <div class="content-card text-center">
+                    <div class="feature-icon amber" style="margin: 0 auto 14px;"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Safety & Integrity</h3>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); margin: 0;">Adhering strictly to certified structural, electrical, and occupational safety standards on every project site.</p>
+                </div>
+                <div class="content-card text-center">
+                    <div class="feature-icon cyan" style="margin: 0 auto 14px;"><i class="fa-solid fa-handshake"></i></div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Client Commitment</h3>
+                    <p style="font-size: 0.84rem; color: var(--text-muted); margin: 0;">End-to-end turnkey accountability — from initial feasibility survey to lifetime maintenance support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION STRIP -->
+    <section class="section-cta-strip">
+        <div class="container">
+            <h2>Ready to Engineer Your Water Project?</h2>
+            <p>Speak with our senior hydraulic engineers today for site surveys, system designs, or equipment quotes.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Contact Engineering Team</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-brand-header">
+                        <img src="logo.png" alt="Laminar Flow Ventures Logo" class="footer-logo-img">
+                        <div>
+                            <span class="footer-brand-title">LAMINAR FLOW</span>
+                            <span class="footer-brand-subtitle">VENTURES LIMITED</span>
+                        </div>
+                    </div>
+                    <p class="footer-about">Engineering precision in water infrastructure, borehole drilling, solar irrigation, and certified equipment procurement.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/256758619476" target="_blank" class="social-icon-btn whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@laminarflowventures" target="_blank" class="social-icon-btn tiktok" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-" target="_blank" class="social-icon-btn github" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="equipment.html">Equipment Sales</a></li>
+                        <li><a href="proven-records.html">Proven Records</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Core Services</h4>
+                    <ul>
+                        <li><a href="services.html">Deep Borehole Drilling</a></li>
+                        <li><a href="services.html">Steel Tank Tower Erection</a></li>
+                        <li><a href="services.html">Solar Irrigation Networks</a></li>
+                        <li><a href="services.html">CFD Hydraulic Modeling</a></li>
+                        <li><a href="equipment.html">Industrial Pump Procurement</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Headquarters</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Along Buremba Kakoba Road, Mbarara City (U)</p>
+                    <p><i class="fa-solid fa-envelope"></i> larminaflowventures@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +256 773 071 425 / +256 758 619 476</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> Laminar Flow Ventures Limited. All Rights Reserved.</p>
+                <div class="footer-badge-text">
+                    <span>WATER</span> • <span>IRRIGATION</span> • <span>SOLAR</span> • <span>ENGINEERING</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Action -->
+    <a href="https://wa.me/256758619476" target="_blank" class="whatsapp-float" title="Chat with Laminar Flow Ventures on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+    </a>
+
+    <script src="app.js?v=27.0"></script>
+</body>
+</html>

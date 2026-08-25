@@ -22,32 +22,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* Navbar Scroll & Mobile Menu Toggle */
 function initNavbar() {
-    const navbar = document.getElementById('navbar');
+    const navbar = document.getElementById('header') || document.getElementById('navbar');
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 
-    if (mobileToggle) {
+    if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
     }
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+    if (navMenu) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
         });
-    });
+    }
 }
 
 /* Equipment Product Inquiry Binding */

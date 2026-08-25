@@ -1,49 +1,38 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Laminar Flow Ventures Limited - Proven Records & On-Site Works. Commissioned borehole headworks, pumping station manifolds, yield discharge testing, and hydraulic infrastructure.">
-    <title>Proven Records & On-Site Works | Laminar Flow Ventures Limited</title>
-    
-    <!-- Fonts & Icons -->
+    <title>Proven Records | Laminar Flow Ventures Limited</title>
+    <meta name="description" content="Verified field installations, deep borehole yield tests, pumping station manifolds, and commissioned municipal water infrastructure across East Africa.">
+    <link rel="stylesheet" href="styles.css?v=27.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Master Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=22.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-
-    <!-- TOP ANNOUNCEMENT BAR -->
+    <!-- Top Contact Bar -->
     <div class="top-bar">
-        <div class="container top-bar-container">
-            <div class="top-bar-left">
+        <div class="container top-bar-content">
+            <div class="top-info">
                 <span><i class="fa-solid fa-location-dot"></i> Along Buremba Kakoba Road, Mbarara City (U)</span>
                 <span><i class="fa-solid fa-envelope"></i> larminaflowventures@gmail.com</span>
                 <span><i class="fa-solid fa-phone"></i> +256 773 071 425</span>
             </div>
-            <div class="top-bar-right">
-                <a href="https://wa.me/256758619476" target="_blank" aria-label="WhatsApp" class="top-social-link" title="Chat on WhatsApp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-                <a href="https://www.tiktok.com/@laminarflowventures" target="_blank" aria-label="TikTok" class="top-social-link" title="Follow on TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
-                <a href="https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-" target="_blank" aria-label="GitHub" class="top-social-link" title="GitHub Repository">
-                    <i class="fa-brands fa-github"></i>
-                </a>
+            <div class="top-socials">
+                <a href="https://wa.me/256758619476" target="_blank" class="top-social-link" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.tiktok.com/@laminarflowventures" target="_blank" class="top-social-link" title="Follow on TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-" target="_blank" class="top-social-link" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- NAVIGATION HEADER -->
-    <header class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="brand-logo-wrapper" title="Laminar Flow Ventures Limited">
-                <img src="logo.jpg" alt="Laminar Flow Ventures Limited Logo" class="header-logo-img">
+    <!-- Main Navigation Bar -->
+    <header class="main-header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo-wrapper">
+                <img src="logo.png" alt="Laminar Flow Ventures Limited Logo" class="header-logo-img">
                 <div class="brand-text-block">
                     <span class="brand-title-main">LAMINAR FLOW</span>
                     <span class="brand-title-sub">VENTURES LIMITED</span>
@@ -51,16 +40,16 @@
             </a>
             
             <nav class="nav-menu" id="nav-menu">
-                <a href="index.html#home" class="nav-link">Home</a>
-                <a href="index.html#about" class="nav-link">About Us</a>
-                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="equipment.html" class="nav-link">Equipment Sales</a>
                 <a href="proven-records.html" class="nav-link active">Proven Records</a>
-                <a href="index.html#products" class="nav-link">Equipment Sales</a>
-                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </nav>
 
             <div class="nav-actions">
-                <a href="index.html#contact" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Get Quote</a>
+                <a href="contact.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Get Quote</a>
                 <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -68,22 +57,24 @@
         </div>
     </header>
 
-    <!-- PAGE HERO HEADER -->
-    <section class="section" style="padding-top: calc(var(--nav-height) + 40px); background: #F8FAFC; border-bottom: 1px solid var(--border-subtle);">
-        <div class="container text-center">
-            <div style="margin-bottom: 16px;">
-                <a href="index.html" class="btn btn-glass btn-sm"><i class="fa-solid fa-arrow-left"></i> Return to Homepage</a>
+    <!-- PAGE HERO BANNER -->
+    <section class="page-banner text-center">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <span>Proven Records</span>
             </div>
             <div class="section-tag">DOCUMENTED ON-SITE WORKS</div>
-            <h1 class="section-title" style="font-size: clamp(2rem, 5vw, 3rem);">Proven Engineering Records & Project Showcase</h1>
-            <p class="section-subtitle" style="max-width: 760px;">
-                Verified field installations, high-volume borehole yield tests, pumping station manifolds, and commissioned municipal water infrastructure across East Africa.
+            <h1 class="section-title">Proven Engineering Records & Project Showcase</h1>
+            <p class="section-subtitle">
+                Verified field installations, deep borehole water strikes, high-elevation structural steel tank towers, and commissioned water systems.
             </p>
         </div>
     </section>
 
     <!-- PROVEN RECORDS GALLERY SECTION -->
-    <section class="section portfolio" id="proven-gallery">
+    <section class="subpage-section" id="proven-gallery">
         <div class="container">
             <!-- Filter Buttons -->
             <div class="portfolio-filters">
@@ -194,17 +185,12 @@
         </div>
     </section>
 
-    <!-- CALL TO ACTION BANNER -->
-    <section class="section" style="background: var(--lfv-navy-dark); color: #FFFFFF; text-align: center;">
+    <!-- CALL TO ACTION STRIP -->
+    <section class="section-cta-strip">
         <div class="container">
-            <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 12px;">Need Similar Engineering Works for Your Site?</h2>
-            <p style="color: #94A3B8; max-width: 600px; margin: 0 auto 24px;">
-                Our certified engineers are available for site surveys, borehole testing, civil construction, and equipment supply.
-            </p>
-            <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-                <a href="index.html#contact" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Request Project Proposal</a>
-                <a href="https://wa.me/256758619476" target="_blank" class="btn btn-glass btn-lg" style="color: #FFFFFF; border-color: rgba(255,255,255,0.2);"><i class="fa-brands fa-whatsapp"></i> Chat with Lead Engineer</a>
-            </div>
+            <h2>Need Similar Engineering Works for Your Site?</h2>
+            <p>Our certified engineers are available for site surveys, borehole testing, civil construction, and equipment supply.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Request Project Proposal</a>
         </div>
     </section>
 
@@ -213,75 +199,68 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <img src="logo.jpg" alt="Laminar Flow Logo" class="footer-logo-img">
-                    <p>Water to every point. Sustainable water, irrigation, and green energy infrastructure.</p>
+                    <div class="footer-brand-header">
+                        <img src="logo.png" alt="Laminar Flow Ventures Logo" class="footer-logo-img">
+                        <div>
+                            <span class="footer-brand-title">LAMINAR FLOW</span>
+                            <span class="footer-brand-subtitle">VENTURES LIMITED</span>
+                        </div>
+                    </div>
+                    <p class="footer-about">Engineering precision in water infrastructure, borehole drilling, solar irrigation, and certified equipment procurement.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/256758619476" target="_blank" class="social-icon-btn whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@laminarflowventures" target="_blank" class="social-icon-btn tiktok" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-" target="_blank" class="social-icon-btn github" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
                 </div>
 
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
                     <ul>
-                        <li><a href="index.html#home">Home</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="equipment.html">Equipment Sales</a></li>
                         <li><a href="proven-records.html">Proven Records</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-links">
-                    <h4>Head Office</h4>
-                    <p><i class="fa-solid fa-location-dot"></i> Along Buremba Kakoba Road</p>
-                    <p><i class="fa-solid fa-box-archive"></i> P. O. Box 423674, Mbarara City (U)</p>
-                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:larminaflowventures@gmail.com" style="color: #94A3B8;">larminaflowventures@gmail.com</a></p>
-                    <p><i class="fa-solid fa-phone"></i> Call: <a href="tel:+256773071425" style="color: #94A3B8;">+256 773 071 425</a></p>
+                <div class="footer-nav">
+                    <h4>Core Services</h4>
+                    <ul>
+                        <li><a href="services.html">Deep Borehole Drilling</a></li>
+                        <li><a href="services.html">Steel Tank Tower Erection</a></li>
+                        <li><a href="services.html">Solar Irrigation Networks</a></li>
+                        <li><a href="services.html">CFD Hydraulic Modeling</a></li>
+                        <li><a href="equipment.html">Industrial Pump Procurement</a></li>
+                    </ul>
                 </div>
 
-                <div class="footer-links">
-                    <h4>Connect With Us</h4>
-                    <p>Follow our projects & chat instantly:</p>
-                    <div class="footer-social-row">
-                        <a href="https://wa.me/256758619476" target="_blank" aria-label="WhatsApp" class="social-icon-btn whatsapp" title="Chat on WhatsApp">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@laminarflowventures" target="_blank" aria-label="TikTok" class="social-icon-btn tiktok" title="Follow on TikTok">
-                            <i class="fa-brands fa-tiktok"></i>
-                        </a>
-                        <a href="https://github.com/Christopher-Ssekyanzi/Laminar-flow-ventures-" target="_blank" aria-label="GitHub" class="social-icon-btn github" title="GitHub Repository">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
+                <div class="footer-contact">
+                    <h4>Headquarters</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Along Buremba Kakoba Road, Mbarara City (U)</p>
+                    <p><i class="fa-solid fa-envelope"></i> larminaflowventures@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +256 773 071 425 / +256 758 619 476</p>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>&copy; <span id="year">2026</span> Laminar Flow Ventures Limited. All Rights Reserved.</p>
+                <div class="footer-badge-text">
+                    <span>WATER</span> • <span>IRRIGATION</span> • <span>SOLAR</span> • <span>ENGINEERING</span>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Service Spec Modal -->
-    <div class="modal" id="spec-modal" onclick="if(event.target===this) window.closeModal()">
-        <div class="modal-content glass-card">
-            <button type="button" class="modal-close" id="modal-close" onclick="window.closeModal(); return false;" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
-            <div id="modal-body">
-                <!-- Content dynamically injected via app.js -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="toast">
-        <i class="fa-solid fa-circle-check"></i>
-        <span id="toast-message">Action completed successfully.</span>
-    </div>
-
-    <!-- Floating WhatsApp Action Button -->
+    <!-- WhatsApp Floating Action -->
     <a href="https://wa.me/256758619476" target="_blank" class="whatsapp-float" title="Chat with Laminar Flow Ventures on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="whatsapp-tooltip">Chat on WhatsApp</span>
     </a>
 
     <!-- Scripts -->
-    <script src="app.js?v=22.0"></script>
+    <script src="app.js?v=27.0"></script>
 </body>
 </html>
