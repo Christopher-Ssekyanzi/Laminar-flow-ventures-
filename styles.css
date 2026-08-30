@@ -217,21 +217,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-logo-img {
-    height: 72px;
-    max-height: 76px;
+    height: 76px;
+    max-height: 80px;
     width: auto;
     object-fit: contain;
-    border-radius: 8px;
-    background: #FFFFFF;
-    padding: 3px 6px;
-    box-shadow: 0 3px 12px rgba(0, 82, 204, 0.15);
-    border: 1.5px solid rgba(226, 232, 240, 0.9);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    transition: transform var(--transition-fast);
 }
 
 .header-logo-img:hover {
     transform: scale(1.04);
-    box-shadow: 0 4px 16px rgba(0, 82, 204, 0.25);
 }
 
 .brand-text-block {
@@ -1809,7 +1803,7 @@ h1, h2, h3, h4, h5, h6 {
     .container { padding: 0 14px; }
     .story-grid { grid-template-columns: 1fr; }
     .story-img-wrapper { height: 190px; }
-    .header-logo-img { height: 52px; max-height: 56px; padding: 2px 4px; }
+    .header-logo-img { height: 52px; max-height: 56px; }
     .brand-title-main { font-size: 1.1rem; }
     .brand-title-sub { font-size: 0.7rem; }
     .brand-logo-wrapper { gap: 8px; }
