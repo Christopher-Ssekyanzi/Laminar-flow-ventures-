@@ -39,7 +39,7 @@
     
     /* Layout Variables */
     --container-max: 1240px;
-    --nav-height: 80px;
+    --nav-height: 96px;
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
@@ -217,8 +217,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-logo-img {
-    height: 54px;
-    max-height: 58px;
+    height: 72px;
+    max-height: 76px;
     width: auto;
     object-fit: contain;
     border-radius: 8px;
@@ -620,7 +620,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Header & Navbar */
 .main-header, .navbar {
     position: fixed;
-    top: 36px;
+    top: 0;
     left: 0;
     width: 100%;
     height: var(--nav-height);
@@ -636,7 +636,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
-    height: 68px;
+    height: 82px;
 }
 
 .main-header.nav-hidden, .navbar.nav-hidden {
@@ -1666,7 +1666,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     .main-header, .navbar {
         top: 0 !important;
-        height: 62px !important;
+        height: 72px !important;
         background: rgba(255, 255, 255, 0.98);
         box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
     }
@@ -1680,7 +1680,7 @@ h1, h2, h3, h4, h5, h6 {
         min-height: 90vh !important;
         min-height: 90svh !important;
         min-height: 90dvh !important;
-        padding-top: calc(62px + 26px) !important; /* ~1 inch below header bar having the logo */
+        padding-top: calc(72px + 26px) !important; /* ~1 inch below header bar having the logo */
         padding-bottom: 40px !important;
         justify-content: flex-start !important;
         align-items: center !important;
@@ -1806,7 +1806,7 @@ h1, h2, h3, h4, h5, h6 {
     .container { padding: 0 14px; }
     .story-grid { grid-template-columns: 1fr; }
     .story-img-wrapper { height: 190px; }
-    .header-logo-img { height: 42px; max-height: 44px; padding: 2px 4px; }
+    .header-logo-img { height: 52px; max-height: 56px; padding: 2px 4px; }
     .brand-title-main { font-size: 0.92rem; }
     .brand-title-sub { font-size: 0.55rem; }
     .brand-logo-wrapper { gap: 8px; }
@@ -1817,7 +1817,7 @@ h1, h2, h3, h4, h5, h6 {
         min-height: 92vh !important;
         min-height: 92svh !important;
         min-height: 92dvh !important;
-        padding-top: calc(60px + 24px) !important; /* exactly ~1 inch below the header logo bar */
+        padding-top: calc(72px + 24px) !important; /* exactly ~1 inch below the header logo bar */
         padding-bottom: 36px !important;
         justify-content: flex-start !important;
         align-items: center !important;
