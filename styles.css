@@ -359,22 +359,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-img-caption {
     position: absolute;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    background: rgba(15, 23, 42, 0.88);
-    color: #FFFFFF;
-    font-size: 0.82rem;
-    padding: 8px 14px;
-    border-radius: var(--radius-sm);
-    backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.35) 60%, transparent 100%);
+    color: #F8FAFC;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 28px 18px 14px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    display: block;
+    text-align: left;
+    letter-spacing: 0.01em;
+    line-height: 1.45;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
-.about-img-caption i {
-    color: var(--lfv-ocean-cyan);
+.about-img-caption span {
+    color: #F8FAFC;
+    font-weight: 500;
 }
 
 .portfolio-real-img {
@@ -1216,16 +1223,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .product-slide-caption {
     position: absolute;
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
-    background: rgba(15, 23, 42, 0.82);
-    color: #FFFFFF;
-    font-size: 0.74rem;
-    padding: 4px 10px;
-    border-radius: 4px;
-    backdrop-filter: blur(6px);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 100%);
+    color: #F8FAFC;
+    font-size: 0.76rem;
+    font-weight: 500;
+    padding: 16px 10px 8px;
     z-index: 5;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .product-slideshow-dots {
