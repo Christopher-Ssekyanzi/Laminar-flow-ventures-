@@ -238,7 +238,7 @@ h1, h2, h3, h4, h5, h6 {
 .brand-title-main {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
-    font-size: 1.35rem;
+    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
     color: #0F172A;
     letter-spacing: -0.01em;
     line-height: 1.05;
@@ -247,7 +247,7 @@ h1, h2, h3, h4, h5, h6 {
 .brand-title-sub {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 0.72rem;
+    font-size: clamp(0.56rem, 1.3vw, 0.72rem);
     letter-spacing: 0.12em;
     color: #0077FF;
     text-transform: uppercase;
@@ -256,12 +256,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .brand-tagline {
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 0.52rem;
-    letter-spacing: 0.12em;
+    font-weight: 500;
+    font-size: clamp(0.30rem, 0.82vw, 0.44rem);
+    letter-spacing: 0.08em;
     color: #64748B;
     text-transform: uppercase;
-    margin-top: 3px;
+    white-space: nowrap;
+    margin-top: 2px;
 }
 
 .footer-logo-img {
@@ -1687,21 +1688,9 @@ h1, h2, h3, h4, h5, h6 {
         max-height: 54px; 
         flex-shrink: 0;
     }
-    .brand-title-main { 
-        font-size: 1.15rem; 
-        line-height: 1.05;
-    }
-    .brand-title-sub { 
-        font-size: 0.66rem; 
-        letter-spacing: 0.1em;
-        margin-top: 1px;
-    }
-    .brand-tagline { 
-        font-size: 0.44rem; 
-        letter-spacing: 0.09em; 
-        white-space: nowrap;
-        margin-top: 2px;
-    }
+    .brand-title-main { font-size: 1.08rem; line-height: 1.05; }
+    .brand-title-sub { font-size: 0.60rem; letter-spacing: 0.09em; margin-top: 1px; }
+    .brand-tagline { font-size: 0.36rem; letter-spacing: 0.06em; white-space: nowrap; margin-top: 2px; }
 
     .nav-container {
         padding: 0 16px;
@@ -1839,9 +1828,9 @@ h1, h2, h3, h4, h5, h6 {
     .story-grid { grid-template-columns: 1fr; }
     .story-img-wrapper { height: 190px; }
     .header-logo-img { height: 46px; max-height: 48px; flex-shrink: 0; }
-    .brand-title-main { font-size: 1.02rem; }
-    .brand-title-sub { font-size: 0.60rem; letter-spacing: 0.08em; }
-    .brand-tagline { font-size: 0.38rem; letter-spacing: 0.06em; white-space: nowrap; }
+    .brand-title-main { font-size: 0.95rem; }
+    .brand-title-sub { font-size: 0.52rem; letter-spacing: 0.07em; }
+    .brand-tagline { font-size: 0.30rem; letter-spacing: 0.04em; white-space: nowrap; }
     .brand-logo-wrapper { gap: 8px; }
     .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
     .section { padding: 44px 0; }
@@ -1915,9 +1904,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 360px) {
     .container { padding: 0 10px; }
     .header-logo-img { height: 38px; max-height: 40px; }
-    .brand-title-main { font-size: 0.88rem; }
-    .brand-title-sub { font-size: 0.50rem; letter-spacing: 0.05em; }
-    .brand-tagline { font-size: 0.32rem; letter-spacing: 0.03em; }
+    .brand-title-main { font-size: 0.82rem; }
+    .brand-title-sub { font-size: 0.45rem; letter-spacing: 0.04em; }
+    .brand-tagline { font-size: 0.26rem; letter-spacing: 0.02em; }
     .brand-logo-wrapper { gap: 6px; }
     .hero .badge-pill, .badge-pill {
         gap: 2.5px !important;
