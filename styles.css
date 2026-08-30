@@ -212,13 +212,13 @@ h1, h2, h3, h4, h5, h6 {
 .brand-logo-wrapper {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     text-decoration: none;
 }
 
 .header-logo-img {
-    height: 82px;
-    max-height: 86px;
+    height: 70px;
+    max-height: 74px;
     width: auto;
     object-fit: contain;
     transition: transform var(--transition-fast);
@@ -238,18 +238,30 @@ h1, h2, h3, h4, h5, h6 {
 .brand-title-main {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     color: #0F172A;
     letter-spacing: -0.01em;
+    line-height: 1.05;
 }
 
 .brand-title-sub {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    color: var(--lfv-ocean-cyan);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: #0077FF;
     text-transform: uppercase;
+    margin-top: 1px;
+}
+
+.brand-tagline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+    color: #64748B;
+    text-transform: uppercase;
+    margin-top: 3px;
 }
 
 .footer-logo-img {
@@ -1803,7 +1815,8 @@ h1, h2, h3, h4, h5, h6 {
     .container { padding: 0 14px; }
     .story-grid { grid-template-columns: 1fr; }
     .story-img-wrapper { height: 190px; }
-    .header-logo-img { height: 58px; max-height: 62px; }
+    .header-logo-img { height: 48px; max-height: 52px; }
+    .brand-tagline { font-size: 0.38rem; letter-spacing: 0.06em; }
     .brand-title-main { font-size: 1.1rem; }
     .brand-title-sub { font-size: 0.7rem; }
     .brand-logo-wrapper { gap: 8px; }
