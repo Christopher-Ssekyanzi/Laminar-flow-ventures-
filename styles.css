@@ -1677,11 +1677,18 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .hero {
-        min-height: auto !important;
+        min-height: 90vh !important;
+        min-height: 90svh !important;
+        min-height: 90dvh !important;
         padding-top: calc(62px + 26px) !important; /* ~1 inch below header bar having the logo */
-        padding-bottom: 50px !important;
+        padding-bottom: 40px !important;
         justify-content: flex-start !important;
         align-items: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(180deg, rgba(11, 19, 43, 0.78) 0%, rgba(15, 23, 42, 0.50) 45%, rgba(10, 25, 50, 0.78) 100%) !important;
     }
 
     .hero-content {
@@ -1807,11 +1814,14 @@ h1, h2, h3, h4, h5, h6 {
     .section { padding: 44px 0; }
     
     .hero {
-        min-height: auto !important;
+        min-height: 92vh !important;
+        min-height: 92svh !important;
+        min-height: 92dvh !important;
         padding-top: calc(60px + 24px) !important; /* exactly ~1 inch below the header logo bar */
         padding-bottom: 36px !important;
         justify-content: flex-start !important;
         align-items: center !important;
+        box-sizing: border-box !important;
     }
 
     .hero-content {
