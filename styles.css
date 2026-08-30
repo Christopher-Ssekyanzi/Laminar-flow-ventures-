@@ -718,7 +718,8 @@ h1, h2, h3, h4, h5, h6 {
 .hero {
     position: relative;
     min-height: 85vh;
-    padding-top: calc(var(--nav-height) + 40px);
+    margin-top: var(--nav-height);
+    padding-top: 40px;
     padding-bottom: 60px;
     display: flex;
     flex-direction: column;
@@ -1681,7 +1682,8 @@ h1, h2, h3, h4, h5, h6 {
         min-height: 90vh !important;
         min-height: 90svh !important;
         min-height: 90dvh !important;
-        padding-top: calc(72px + 26px) !important; /* ~1 inch below header bar having the logo */
+        margin-top: 72px !important;
+        padding-top: 26px !important; /* ~1 inch below header bar having the logo */
         padding-bottom: 40px !important;
         justify-content: flex-start !important;
         align-items: center !important;
@@ -1818,7 +1820,8 @@ h1, h2, h3, h4, h5, h6 {
         min-height: 92vh !important;
         min-height: 92svh !important;
         min-height: 92dvh !important;
-        padding-top: calc(72px + 24px) !important; /* exactly ~1 inch below the header logo bar */
+        margin-top: 72px !important;
+        padding-top: 24px !important; /* exactly ~1 inch below the header logo bar */
         padding-bottom: 36px !important;
         justify-content: flex-start !important;
         align-items: center !important;
