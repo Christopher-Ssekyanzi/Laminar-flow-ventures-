@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6 {
 .brand-title-main {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     color: #0F172A;
     letter-spacing: -0.01em;
 }
@@ -252,7 +252,7 @@ h1, h2, h3, h4, h5, h6 {
 .brand-title-sub {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 0.65rem;
+    font-size: 0.85rem;
     letter-spacing: 0.08em;
     color: var(--lfv-ocean-cyan);
     text-transform: uppercase;
@@ -665,6 +665,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu {
     display: flex;
+    margin-left: auto;
     gap: 28px;
 }
 
@@ -960,7 +961,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     flex-shrink: 0;
 }
 
@@ -1415,7 +1416,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     flex-shrink: 0;
 }
 
@@ -1807,8 +1808,8 @@ h1, h2, h3, h4, h5, h6 {
     .story-grid { grid-template-columns: 1fr; }
     .story-img-wrapper { height: 190px; }
     .header-logo-img { height: 52px; max-height: 56px; padding: 2px 4px; }
-    .brand-title-main { font-size: 0.92rem; }
-    .brand-title-sub { font-size: 0.55rem; }
+    .brand-title-main { font-size: 1.1rem; }
+    .brand-title-sub { font-size: 0.7rem; }
     .brand-logo-wrapper { gap: 8px; }
     .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
     .section { padding: 44px 0; }
