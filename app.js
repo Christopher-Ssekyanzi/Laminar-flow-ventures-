@@ -27,18 +27,43 @@ function initNavbar() {
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    if (navbar) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 40) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    }
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                // Background styling when scrolled
+                if (currentScrollY > 25) {
+                    if (navbar) navbar.classList.add('scrolled');
+                } else {
+                    if (navbar) navbar.classList.remove('scrolled');
+                }
+
+                // Auto-hide mobile toggle & header when scrolling DOWN; show when scrolling UP
+                if (currentScrollY > 60 && currentScrollY > lastScrollY + 6) {
+                    // User is scrolling DOWN
+                    if (navbar) navbar.classList.add('nav-hidden');
+                    if (mobileToggle) mobileToggle.classList.add('toggle-hidden');
+                    if (navMenu) navMenu.classList.remove('active'); // auto-collapse open menu
+                } else if (currentScrollY < lastScrollY - 6 || currentScrollY <= 20) {
+                    // User is scrolling UP or at top of page
+                    if (navbar) navbar.classList.remove('nav-hidden');
+                    if (mobileToggle) mobileToggle.classList.remove('toggle-hidden');
+                }
+
+                lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 
     if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
         });
     }
@@ -48,6 +73,13 @@ function initNavbar() {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
+        });
+
+        // Close menu on tap outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && mobileToggle && !mobileToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
         });
     }
 }
